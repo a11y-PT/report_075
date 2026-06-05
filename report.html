@@ -1,11 +1,1722 @@
-<!doctype html>
-<html lang="pt-PT">
+<!DOCTYPE html>
+<html lang="pt">
 <head>
-  <meta charset="utf-8">
-  <title>Relatório ainda não disponível!</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Relatório CM Praia da Vitória</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    .skip-link { position: absolute; top: -40px; left: 0; background: #000; color: white; padding: 8px; z-index: 100; transition: top 0.3s ease; }
+    .skip-link:focus { top: 0; }
+    .visually-hidden-focusable:not(:focus):not(:focus-within) { position: absolute !important; width: 1px !important; height: 1px !important; padding: 0 !important; margin: -1px !important; overflow: hidden !important; clip: rect(0,0,0,0) !important; white-space: nowrap !important; border: 0 !important; }
+    body { 
+      background-color: #ffffff; 
+      padding-top: 2rem; 
+      padding-bottom: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+    }
+    .container { 
+      max-width: 900px;
+      width: 100%;
+      background-color: transparent; 
+      padding-top: 1rem;
+      padding-bottom: 2rem;
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+    .report-footer {
+      width: 100%;
+      align-self: stretch;
+      background-color: #ffffff;
+      color: #4a5568;
+      text-align: center;
+      padding: 1.25rem 1rem;
+      font-size: 0.8rem;
+      border-top: 1px solid #e0e0e0;
+      margin-top: auto;
+    }
+    .report-footer p { margin: 0.2rem 0; }
+    h1 { font-size: 1.8rem; margin-bottom: 1.5rem; }
+    .status-ok { color: #ffffff; background-color: #0E8A16; padding: 0.25rem 0.5rem; border-radius: 50px; font-weight: 500; display: inline-block; }
+    .status-nok { color: #ffffff; background-color: #B60205; padding: 0.25rem 0.5rem; border-radius: 50px; font-weight: 500; display: inline-block; }
+    .status-melhoria { color: #856404; background-color: #fff3cd; padding: 0.25rem 0.5rem; border-radius: 50px; font-weight: 500; display: inline-block; }
+    .status-na { color: #000; background-color: #C2E0C6; padding: 0.25rem 0.5rem; border-radius: 50px; font-weight: 500; display: inline-block; }
+    .requirement-title { margin-top: 2rem; }
+    .requirement-title h4, .requirement-title h3 { color: #000; }
+    .mb-4 ul li a { color: #1e3a8a; text-decoration: none; }
+    .mb-4 ul li a:hover { color: #1e40af; text-decoration: underline; }
+    summary.index-summary { display: list-item; font-weight: 700; font-size: 1.25rem !important; color: #000; cursor: pointer; }
+    summary.index-summary:focus { outline: 3px solid #333399; outline-offset: 2px; }
+    .evidence-list { list-style-type: disc; padding-left: 1.5rem; margin: 1rem 0; }
+    .evidence-item { margin: 0.5rem 0; padding: 0.5rem 0.5rem 0.5rem 1.5rem; border-radius: 4px; background-color: #f6f6f6; color: #000; list-style: none; margin-left: -1.5rem; }
+    .evidence-item p { margin: 1.5rem 0 1rem 0; }
+    .evidence-labels { font-size: 0.85em; display: inline-flex; flex-wrap: wrap; gap: 0.25rem; }
+    .label-tag { padding: 0.125rem 0.375rem; border-radius: 1rem; font-size: 0.75rem; font-weight: 500; color: white; display: inline-block; margin-right: 0.25rem; }
+    .label-checklist { background-color: #5319E7; }
+    .label-auto { background-color: #5319E7; }
+    .label-declaracao { background-color: #5319E7; }
+    .label-outras { background-color: #5319E7; }
+    .label-melhoria { background-color: #FBCA04; color: #000; }
+    .label-na { background-color: #C2E0C6; color: #000; }
+    .label-ok { background-color: #0E8A16; }
+    .label-nok { background-color: #B60205; }
+    .label-requisito { background-color: #0052CC; }
+    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+    .report-section { border-bottom: 3px solid #000000; padding-bottom: 2rem; margin-bottom: 2rem; }
+    .report-section:last-of-type { border-bottom: none; }
+    .checklist-section { border-bottom: 3px solid #000000; padding-bottom: 1.5rem; margin-bottom: 1.5rem; }
+    .avaliacao-manual-section { padding-bottom: 1.5rem; margin-bottom: 1.5rem; }
+    .checklist-section:last-of-type { border-bottom: none; }
+    .issue-link { color: #1e3a8a; text-decoration: none; }
+    .issue-link:hover { text-decoration: underline; color: #1e40af; }
+    table.table caption { caption-side: top; text-align: left; padding-bottom: 0.5rem; font-weight: 600; color: #000; }
+  </style>
 </head>
 <body>
-  <h1>Opps! O relatório ainda não está disponível!</h1>
-  <p>Peça à equipa da <abbr title="Agência para a Reforma Tecnológica do Estado">ARTE</abbr> para adicionar o relatório.</p>
+  <a href="#conteudo-principal" class="skip-link visually-hidden-focusable">Saltar para o conteúdo principal</a>
+  <div class="container mt-4" id="conteudo-principal">
+    <header class="mb-4">
+        <h1>Relatório Avaliação de Candidatura<br><em style="font-size:70%">CM Praia da Vitória</em></h1>
+    </header>
+
+    <section class="mb-4">
+      <ul>
+        <li>Avaliação feita por: ARTE. I.P. - Núcleo de Experiência e Usabilidade</li>
+        <li>Data de criação: 05/06/2026</li>
+        <li>Última atualização: 05/06/2026</li>
+        <li>URL: <a href="https://www.cmpv.pt/" target="_blank" rel="noopener noreferrer">https://www.cmpv.pt/</a></li>
+        <li>Propriedade: Município da Praia da Vitória</li>
+        <li>Candidatura: Bronze</li>
+        <li>Progresso (% de requisitos auditados): 100%</li>
+      </ul>
+    </section>
+
+    <nav class="mb-4 report-section" aria-label="Índice">
+      <details open>
+        <summary class="index-summary">Índice</summary>
+        <ul>
+          <li><a href="#introducao">Introdução</a></li>
+          
+          <li><a href="#avaliacao-automatica">Avaliação automática</a></li>
+          
+          <li><a href="#avaliacao-manual">Avaliação manual</a>
+            <ul class="indent-list">
+              
+              <li><a href="#checklist-10-aspetos">Checklist 10 aspetos</a>
+                <ul class="indent-list">
+                  <li><a href="#req-chk10-r-1.1">Requisito 1.1 - O menu de navegação deve estar estruturado como uma lista de opções</a></li><li><a href="#req-chk10-r-1.2">Requisito 1.2 - É possível selecionar as opções e as subopções do menu quer com rato quer com teclado</a></li><li><a href="#req-chk10-r-1.3">Requisito 1.3 - As imagens-link, caso existam no menu, devem ter o correspondente equivalente alternativo em texto</a></li><li><a href="#req-chk10-r-2.1">Requisito 2.1 - Existe um título h1 marcado na página</a></li><li><a href="#req-chk10-r-2.2">Requisito 2.2 - Existe uma marcação hierarquizada de títulos e subtítulos na página (h1...h6)</a></li><li><a href="#req-chk10-r-3.1">Requisito 3.1 - As células que constituem os cabeçalhos da tabela estão marcadas com o elemento th</a></li><li><a href="#req-chk10-r-3.2">Requisito 3.2 - A legenda da tabela está marcada com o elemento caption</a></li><li><a href="#req-chk10-r-4.1">Requisito 4.1 - Ao clicar com o rato na etiqueta, o cursor surge no respetivo campo de edição</a></li><li><a href="#req-chk10-r-4.2">Requisito 4.2 - É possível identificar os campos de preenchimento obrigatório quando se usa apenas um leitor de ecrã</a></li><li><a href="#req-chk10-r-4.3">Requisito 4.3 - É possível localizar e ler as mensagens de erro usando apenas um leitor de ecrã</a></li><li><a href="#req-chk10-r-5.1">Requisito 5.1 - A imagem ou gráfico tem um equivalente alternativo em texto curto e correto</a></li><li><a href="#req-chk10-r-5.2">Requisito 5.2 - O gráfico é acompanhado de uma descrição longa</a></li><li><a href="#req-chk10-r-5.3">Requisito 5.3 - As imagens-link têm um equivalente alternativo correto</a></li><li><a href="#req-chk10-r-6.1">Requisito 6.1 - No corpo de um documento, o rácio de contraste entre a cor do texto normal (menor que 18 pontos ou menor que 14 pontos negrito) e a cor do fundo é superior a 4,5:1</a></li><li><a href="#req-chk10-r-7.2">Requisito 7.2 - O vídeo ou o áudio deve conter preferencialmente legendas fechadas sincronizadas. Caso não seja possível, no mínimo, deve disponibilizar-se uma transcrição textual</a></li><li><a href="#req-chk10-r-8.3">Requisito 8.3 - Quando se retira a CSS, deve ser possível reconhecer a semântica dos diversos elementos</a></li><li><a href="#req-chk10-r-9.1">Requisito 9.1 - Quando a caixa de diálogo é aberta, o foco (cursor do Browser) move-se para um elemento dentro da caixa de diálogo</a></li><li><a href="#req-chk10-r-9.2">Requisito 9.2 - Quando uma caixa de diálogo está aberta, a navegação com teclado (Browser ou Tecnologia de apoio) tem de ficar circunscrita aos elementos que compõem a caixa de diálogo</a></li><li><a href="#req-chk10-r-9.3">Requisito 9.3 - A caixa de diálogo tem de ter um mecanismo que permita sair ou fechar a caixa, quer através de teclado quer através de um dispositivo apontador</a></li><li><a href="#req-chk10-r-9.4">Requisito 9.4 - Quando a caixa de diálogo fecha, o foco (cursor do Browser) deve voltar ao elemento interativo que a invocou</a></li><li><a href="#req-chk10-r-10.1">Requisito 10.1 - Nos ficheiros PDF é possível, no mínimo, extrair o conteúdo textual para formato TXT</a></li>
+                </ul>
+              </li>
+              
+              <li><a href="#checklist-conteudo">Checklist Conteúdo</a>
+                <ul class="indent-list">
+                  <li><a href="#req-conteudo-r-1.1">Requisito 1.1 - O sítio Web apresenta um resumo breve do seu propósito, visível sem se fazer scroll</a></li><li><a href="#req-conteudo-r-1.2">Requisito 1.2 - Os termos mais complexos têm uma definição agregada</a></li><li><a href="#req-conteudo-r-1.4">Requisito 1.4 - A informação sobre a entidade responsável pelo conteúdo está em todas as páginas</a></li><li><a href="#req-conteudo-r-2.1">Requisito 2.1 - O tipo de letra do corpo do documento é adequado e o tamanho da letra é, no mínimo, de 12 pontos</a></li><li><a href="#req-conteudo-r-2.3">Requisito 2.3 - Blocos e linhas de texto com largura não superior a 100 caracteres</a></li><li><a href="#req-conteudo-r-3.2">Requisito 3.2 - A navegação principal está sempre visível e sempre no mesmo local</a></li><li><a href="#req-conteudo-r-4.1">Requisito 4.1 - Os documentos longos têm um índice no topo com hiperligações internas para o mesmo</a></li><li><a href="#req-conteudo-r-4.2">Requisito 4.2 - O layout do sítio Web é adaptável a plataformas móveis sem necessidade de efetuar varrimento horizontal</a></li><li><a href="#req-conteudo-r-5.1">Requisito 5.1 - Não existem elementos interativos acionados apenas com a passagem do rato (hover)</a></li><li><a href="#req-conteudo-r-5.2">Requisito 5.2 - Os elementos interativos têm uma dimensão mínima de 44px CSS (44 pontos) (vertical e horizontal)</a></li><li><a href="#req-conteudo-r-5.4">Requisito 5.4 - Elementos gráficos interativos têm de aparentar ser clicáveis</a></li>
+                </ul>
+              </li>
+              
+              <li><a href="#outras-violacoes">Outras violações</a></li>
+            </ul>
+          </li>
+          
+          <li><a href="#etiquetas">Significado das etiquetas utilizadas</a></li>
+        </ul>
+      </details>
+    </nav>
+
+    <section id="introducao" class="mb-5 report-section">
+      <h2>Introdução</h2>
+      <p>O website <a href="https://www.cmpv.pt/" target="_blank">https://www.cmpv.pt/</a> <strong><span class="status-nok"><span class="sr-only">etiqueta: </span>não passa</span></strong> nos requisitos mínimos do Selo de Usabilidade e Acessibilidade.</p>
+
+      <table class="table table-bordered">
+        <caption>Estado das avaliações efetuadas</caption>
+        <thead><tr><th>Tipo de avaliação</th><th>Estado</th></tr></thead>
+        <tbody>
+          <tr><td>Avaliação Automática</td><td><span class="status-nok"><span class="sr-only">etiqueta: </span>NOK</span></td></tr>
+          <tr><td>Avaliação Manual</td><td><span class="status-nok"><span class="sr-only">etiqueta: </span>NOK</span></td></tr>
+        </tbody>
+      </table>
+      <p>Das avaliações manuais efetuadas obtiveram-se os resultados que se sintetizam na tabela seguinte.</p>
+      <table class="table table-bordered">
+        <caption>Níveis de conformidade das avaliações manuais</caption>
+        <thead><tr><th>Checklist</th><th>Conformidade alcançada</th><th>Resultado</th></tr></thead>
+        <tbody>
+          <tr><td>10 aspetos</td><td>33.3% (7/21)</td><td><span class="status-nok"><span class="sr-only">etiqueta: </span>Não passa</span></td></tr>
+          <tr><td>Conteúdo</td><td>35.3% (6/17)</td><td><span class="status-nok"><span class="sr-only">etiqueta: </span>Não passa</span></td></tr>
+          
+        </tbody>
+      </table>
+      <p><strong>Nota:</strong> para passar os requisitos do Selo é necessário alcançar um nível de conformidade superior ou igual a 75% em cada uma das 3 checklists.</p></section>
+
+    <section id="avaliacao-automatica" class="mb-5 report-section">
+      <h2>Avaliação automática</h2>
+      <p><span class="status-nok"><span class="sr-only">etiqueta: </span>NOK</span></p>
+      <p>Para a produção das evidências do presente capítulo, foram utilizadas ferramentas automatizadas de avaliação de requisitos de acessibilidade de acordo com a norma WCAG 2.1 'AA'. A amostra em análise pelas ferramentas é composta pela Homepage mais todas as páginas diretamente hiperligadas por ela, pertencentes ao domínio.</p>
+      
+      <p>Lista de evidências recolhidas:</p>
+      <ul class="evidence-list">
+            <li class="evidence-item">
+              <p><span class="visually-hidden">evidência: </span><a href="https://github.com/a11y-PT/report_075/issues/13" class="issue-link" target="_blank" rel="noopener noreferrer">issue #13</a> <strong>Avaliação Automática - Access Monitor / Observatório (em avaliação)</strong></p>
+              <div class="evidence-labels"><span class="label-tag label-auto"><span class="sr-only">etiqueta: </span>av auto</span><span class="label-tag label-nok"><span class="sr-only">etiqueta: </span>NOK</span></div>
+              <div class="issue-content"><p>Analisámos a amostra com o Access Monitor, de acordo com o método Home+, tendo sido avaliadas, no total, <strong>20 páginas</strong>.</p>
+<p>Destas páginas, <strong>4 têm pontuação abaixo de 9</strong>: </p>
+<ul>
+<li><a href="http://www.cmpv.pt/index.php?op=noticias&amp;id=4282">http://www.cmpv.pt/index.php?op=noticias&amp;id=4282</a> | 8.7</li>
+<li><a href="http://www.cmpv.pt/index.php?op=noticias&amp;id=4577">http://www.cmpv.pt/index.php?op=noticias&amp;id=4577</a> | 8.8</li>
+<li><a href="http://www.cmpv.pt/index.php?op=noticias&amp;id=4576">http://www.cmpv.pt/index.php?op=noticias&amp;id=4576</a> | 8.8</li>
+<li><a href="http://www.cmpv.pt/index.php?op=noticias&amp;id=4575">http://www.cmpv.pt/index.php?op=noticias&amp;id=4575</a> | 8.8</li>
+</ul>
+<p>Para mais informação sobre os erros de acessibilidade que existem nessas páginas podem consultar o ficheiro .csv:<br><a href="https://github.com/user-attachments/files/28503391/02062026_CMPraiadaVitoria.csv">02062026_CMPraiadaVitoria.csv</a></p>
+<p>A correção desses erros fará aumentar a pontuação.</p>
+<p><strong>Nota: A atualização ainda não foi efetuada no ambiente de produção nem no Observatório, pelo que estes valores ainda não se encontram públicos.</strong></p>
+<img src="https://github.com/user-attachments/assets/21ea07de-430f-41be-ada6-51b0f4b2b0bb" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;">
+
+
+
+<p><em>Figura 1 - Indicadores e conformidade do sítio web</em></p>
+</div>
+            </li>
+            <li class="evidence-item">
+              <p><span class="visually-hidden">evidência: </span><a href="https://github.com/a11y-PT/report_075/issues/12" class="issue-link" target="_blank" rel="noopener noreferrer">issue #12</a> <strong>Existem erros de acessibilidade</strong></p>
+              <div class="evidence-labels"><span class="label-tag label-auto"><span class="sr-only">etiqueta: </span>av auto</span><span class="label-tag label-melhoria"><span class="sr-only">etiqueta: </span>melhoria</span></div>
+              <div class="issue-content"><p><strong>Não foi possível efetuar uma análise completa com o validador Rocket Validator.</strong> </p>
+<p>Apesar de adicionarmos a amostra composta pelos seguintes 20 URL à secção "Initial URLs", o Rocket Validator não avalia amostra, efetuando apenas a avaliação automática da página inicial: </p>
+<ul>
+<li><a href="http://www.cmpv.pt/index.php?op=noticias&amp;id=4282">http://www.cmpv.pt/index.php?op=noticias&amp;id=4282</a></li>
+<li><a href="http://www.cmpv.pt/index.php?op=noticias&amp;id=4577">http://www.cmpv.pt/index.php?op=noticias&amp;id=4577</a></li>
+<li><a href="http://www.cmpv.pt/index.php?op=noticias&amp;id=4576">http://www.cmpv.pt/index.php?op=noticias&amp;id=4576</a></li>
+<li><a href="http://www.cmpv.pt/index.php?op=noticias&amp;id=4575">http://www.cmpv.pt/index.php?op=noticias&amp;id=4575</a></li>
+<li><a href="http://www.cmpv.pt/index.php?op=noticias&amp;id=4433">http://www.cmpv.pt/index.php?op=noticias&amp;id=4433</a></li>
+<li><a href="http://www.cmpv.pt/index.php?op=agenda&amp;id=816">http://www.cmpv.pt/index.php?op=agenda&amp;id=816</a></li>
+<li><a href="http://www.cmpv.pt/index.php?op=agenda&amp;id=783">http://www.cmpv.pt/index.php?op=agenda&amp;id=783</a></li>
+<li><a href="http://www.cmpv.pt/index.php?op=agenda&amp;id=780">http://www.cmpv.pt/index.php?op=agenda&amp;id=780</a></li>
+<li><a href="http://www.cmpv.pt/index.php?op=agenda&amp;id=781">http://www.cmpv.pt/index.php?op=agenda&amp;id=781</a></li>
+<li><a href="http://www.cmpv.pt/index.php?op=agenda&amp;id=796">http://www.cmpv.pt/index.php?op=agenda&amp;id=796</a></li>
+<li><a href="http://www.cmpv.pt/index.php?op=agenda&amp;id=758">http://www.cmpv.pt/index.php?op=agenda&amp;id=758</a></li>
+<li><a href="http://www.cmpv.pt/index.php?op=agenda&amp;id=782">http://www.cmpv.pt/index.php?op=agenda&amp;id=782</a></li>
+<li><a href="http://www.cmpv.pt/index.php?op=agenda&amp;id=768">http://www.cmpv.pt/index.php?op=agenda&amp;id=768</a></li>
+<li><a href="http://www.cmpv.pt/index.php?op=agenda&amp;id=769">http://www.cmpv.pt/index.php?op=agenda&amp;id=769</a></li>
+<li><a href="http://www.cmpv.pt/index.php">http://www.cmpv.pt/index.php</a></li>
+<li><a href="http://www.cmpv.pt/index.php?op=noticias">http://www.cmpv.pt/index.php?op=noticias</a></li>
+<li><a href="http://www.cmpv.pt/index.php?op=noticias&amp;id=4248">http://www.cmpv.pt/index.php?op=noticias&amp;id=4248</a></li>
+<li><a href="http://www.cmpv.pt/index.php?op=cookies">http://www.cmpv.pt/index.php?op=cookies</a></li>
+<li><a href="http://www.cmpv.pt/index.php?op=agenda">http://www.cmpv.pt/index.php?op=agenda</a></li>
+<li><a href="http://www.cmpv.pt/index.php?op=agenda&amp;id=818">http://www.cmpv.pt/index.php?op=agenda&amp;id=818</a></li>
+</ul>
+<img src="https://github.com/user-attachments/assets/8cfb24ae-b243-4262-9c34-1035b63923fd" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;">
+
+
+
+<p><em>Figura 1 - Análise automática feita pelo Rocket Validator indica 18 erros de acessibilidade apenas na página inicial</em></p>
+<p>Para mais informações partilhamos o <a href="https://rocketvalidator.com/s/3be1c7c3-33aa-4415-939e-305bcbd7d100">relatório da análise automática feita pelo Rocket Validator</a>.</p>
+</div>
+            </li></ul></section>
+
+    <section id="avaliacao-manual" class="mb-5 mt-5 avaliacao-manual-section">
+      <h2>Avaliação manual</h2>
+      <p><span class="status-nok"><span class="sr-only">etiqueta: </span>NOK</span></p>
+      <p>A avaliação manual é feita por inspeção perícial dos diversos requisitos constantes da:</p>
+      <ul>
+        <li>checklist <strong>10 aspetos críticos de acessibilidade funcional</strong>;</li>
+        <li>checklist <strong>Conteúdo</strong> (se candidato a Selo Bronze);</li>
+        
+      </ul>
+      <p>Sempre que os auditores localizam uma falha grave de um requisito de acessibilidade que, embora não faça parte do esquema de requisitos do Selo, se enquadre no âmbito das violações das WCAG 2.1 'AA' do W3C, tal referência é anotada em "Outras violações" do presente capítulo. Apesar destas violações não se apresentarem com carácter vinculativo no esquema de requisitos do Selo, recomenda-se que as mesmas sejam corrigidas.</p>
+      <div class="checklist-section">
+        <h3 id="checklist-10-aspetos">Checklist 10 aspetos</h3>
+        <p><span class="status-nok"><span class="sr-only">etiqueta: </span>NOK</span></p>
+        
+      <p><strong>Nível de conformidade:</strong></p>
+        <ul>
+          <li><strong>Checklist 10 aspetos</strong>: 33.3% (7/21)
+            <ul>
+              <li>Requisitos avaliados: 27 (6 N/A excluídos, 21 aplicáveis)</li>
+              <li>Requisitos OK: 7</li>
+              <li>Requisitos NOK: 14</li>
+              <li>Requisitos N/A: 6</li>
+            </ul>
+          </li>
+        </ul>
+    
+        <h4 class="requirement-title" id="req-chk10-r-1.1">Requisito 1.1 - O menu de navegação deve estar estruturado como uma lista de opções</h4>
+<div class="requirement-content">
+<p><span class="status-nok"><span class="sr-only">etiqueta: </span>NOK</span></p>
+<p>Lista de evidências recolhidas:</p>
+<ul class="evidence-list">
+
+              <li class="evidence-item">
+                <p><span class="visually-hidden">evidência: </span><a href="https://github.com/a11y-PT/report_075/issues/47" class="issue-link" target="_blank" rel="noopener noreferrer">issue #47</a> <strong>O menu do rodapé não está estruturado como lista</strong></p>
+                <div class="evidence-labels"><span class="label-tag label-checklist"><span class="sr-only">etiqueta: </span>chk 10 web</span><span class="label-tag label-nok"><span class="sr-only">etiqueta: </span>NOK</span><span class="label-tag label-requisito"><span class="sr-only">etiqueta: </span>R 1.1</span></div>
+                <div class="issue-content"><blockquote>
+<p>O menu de navegação deve estar estruturado como uma lista de opções. </p>
+<ul>
+<li><a href="https://amagovpt.github.io/kit-selo/checklists/checklist-10aspetos#n11">Ver requisito 1.1 da lista 10 aspetos</a></li>
+</ul>
+</blockquote>
+<p><strong>Evidências:</strong></p>
+<p>As opções apresentadas no menu do rodapé não estão apresentadas como lista:</p>
+<img src="https://github.com/user-attachments/assets/4fd0ff17-a04f-4521-9ca7-393bf76bd989" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;">
+
+
+
+<p><em>Opções do menu do rodapé.</em></p>
+<p><strong>URLs a verificar:</strong></p>
+<ul>
+<li><a href="https://www.cmpv.pt/index.php">https://www.cmpv.pt/index.php</a> - menu do rodapé</li>
+</ul>
+<p><strong>Recomendações:</strong></p>
+<ul>
+<li>Estruturar as opções do rodapé como uma lista não ordenada. Para isso, devem utilizar a semântica HTML <code>ul</code> <code>li</code>.</li>
+</ul>
+</div>
+              </li>
+              <li class="evidence-item">
+                <p><span class="visually-hidden">evidência: </span><a href="https://github.com/a11y-PT/report_075/issues/27" class="issue-link" target="_blank" rel="noopener noreferrer">issue #27</a> <strong>O menu principal não está estruturado como uma lista</strong></p>
+                <div class="evidence-labels"><span class="label-tag label-checklist"><span class="sr-only">etiqueta: </span>chk 10 web</span><span class="label-tag label-nok"><span class="sr-only">etiqueta: </span>NOK</span><span class="label-tag label-requisito"><span class="sr-only">etiqueta: </span>R 1.1</span></div>
+                <div class="issue-content"><blockquote>
+<p>O menu de navegação deve estar estruturado como uma lista de opções. </p>
+<ul>
+<li><a href="https://amagovpt.github.io/kit-selo/checklists/checklist-10aspetos#n11">Ver requisito 1.1 da lista 10 aspetos</a></li>
+</ul>
+</blockquote>
+<p><strong>Evidências:</strong></p>
+<p>Apesar de estarem a utilizar a semântica de lista com <code>ul</code> e <code>li</code>, foi utilizado atributos como o <code>role="menubar"</code>, <code>role="none"</code>, <code>role="menuitem"</code> e <code>aria-haspopup="true"</code> que alteram a semântica nativa desses elementos. Como consequência, as tecnologias de apoio deixam de os reconhecer como uma lista, passando a interpretá‑los como componentes de menu:</p>
+<img src="https://github.com/user-attachments/assets/880fa163-d75d-40a2-a8eb-61e344a3fdd0" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;">
+
+
+
+<p><em>Opções do menu principal com os atributos <code>role="menubar"</code>, <code>role="none"</code>, <code>role="menuitem"</code> e <code>aria-haspopup="true"</code>.</em></p>
+<p><strong>URLs a verificar:</strong></p>
+<ul>
+<li><a href="https://www.cmpv.pt/index.php">https://www.cmpv.pt/index.php</a> - menu principal</li>
+</ul>
+<p><strong>Recomendações:</strong></p>
+<ul>
+<li>Remover os atributos <code>role="menubar"</code>, <code>role="none"</code>, <code>role="menuitem"</code> e <code>aria-haspopup="true"</code> do menu principal.</li>
+</ul>
+</div>
+              </li></ul>
+</div>
+<h4 class="requirement-title" id="req-chk10-r-1.2">Requisito 1.2 - É possível selecionar as opções e as subopções do menu quer com rato quer com teclado</h4>
+<div class="requirement-content">
+<p><span class="status-nok"><span class="sr-only">etiqueta: </span>NOK</span></p>
+<p>Lista de evidências recolhidas:</p>
+<ul class="evidence-list">
+
+              <li class="evidence-item">
+                <p><span class="visually-hidden">evidência: </span><a href="https://github.com/a11y-PT/report_075/issues/48" class="issue-link" target="_blank" rel="noopener noreferrer">issue #48</a> <strong>O menu mobile não está estruturado como uma navegação de forma apropriada</strong></p>
+                <div class="evidence-labels"><span class="label-tag label-checklist"><span class="sr-only">etiqueta: </span>chk 10 web</span><span class="label-tag label-nok"><span class="sr-only">etiqueta: </span>NOK</span><span class="label-tag label-requisito"><span class="sr-only">etiqueta: </span>R 1.2</span></div>
+                <div class="issue-content"><blockquote>
+<p>É possível selecionar as opções e as subopções do menu quer com rato quer com teclado.</p>
+<ul>
+<li><a href="https://amagovpt.github.io/kit-selo/checklists/checklist-10aspetos#n12">Ver requisito 1.2 da lista 10 aspetos</a></li>
+</ul>
+</blockquote>
+<p><strong>Evidências:</strong></p>
+<p>Verifica-se que apesar de estar a ser utilizado a tag <code>nav</code> nas opções do menu principal na versão mobile, o botão "Menu" está fora da landmark <code>nav</code>. Isso faz com que ao navegar pelo website com o leitor de ecrã, não é possível realizar saltos diretamente para o menu, nem este é identificado como uma área de navegação:</p>
+<img src="https://github.com/user-attachments/assets/3dd91bab-afc2-46c5-9449-8ef536314aab" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;">
+
+
+
+<p><em>Imagem do botão do Menu principal fora da tag de navegação.</em></p>
+<p><strong>URLs a verificar:</strong></p>
+<ul>
+<li><a href="https://www.cmpv.pt/index.php">https://www.cmpv.pt/index.php</a> - menu principal na versão mobile</li>
+</ul>
+<p><strong>Recomendações:</strong></p>
+<ul>
+<li>O menu mobile deve ser estruturado dentro de uma tag <code>nav</code>. Isso inclui também o botão "Menu".</li>
+</ul>
+</div>
+              </li>
+              <li class="evidence-item">
+                <p><span class="visually-hidden">evidência: </span><a href="https://github.com/a11y-PT/report_075/issues/30" class="issue-link" target="_blank" rel="noopener noreferrer">issue #30</a> <strong>Menu mobile/tablet não acessível por teclado e leitores de ecrã</strong></p>
+                <div class="evidence-labels"><span class="label-tag label-checklist"><span class="sr-only">etiqueta: </span>chk 10 web</span><span class="label-tag label-nok"><span class="sr-only">etiqueta: </span>NOK</span><span class="label-tag label-requisito"><span class="sr-only">etiqueta: </span>R 1.2</span></div>
+                <div class="issue-content"><blockquote>
+<p>É possível selecionar as opções e as subopções do menu quer com rato quer com teclado.</p>
+<ul>
+<li><a href="https://amagovpt.github.io/kit-selo/checklists/checklist-10aspetos#n12">Ver requisito 1.2 da lista 10 aspetos</a></li>
+</ul>
+</blockquote>
+<p><strong>Evidências:</strong></p>
+<p>Nos menus de navegação (versão mobile), verificámos que alguns controlos utilizados para expandir ou colapsar o menu foram implementados através de elementos genéricos <code>&lt;span&gt;</code>, apesar de representarem ações de interface.</p>
+<p>Foram observados, por exemplo, controlos para abrir/fechar e fechar o menu mobile estruturados com elementos <code>&lt;span&gt;</code> clicáveis, em vez de elementos semanticamente adequados para ações, como <code>&lt;button&gt;</code>.</p>
+<p>Como consequência, a função destes controlos não é transmitida nativamente às tecnologias de apoio, dependendo de comportamento JavaScript adicional para simular interatividade. Quando os estilos CSS são removidos, também não é possível reconhecer claramente que estes elementos representam ações acionáveis.</p>
+<img src="https://github.com/user-attachments/assets/cd4b76c2-feba-48db-b7d0-9fffefd0fe6e" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;">
+
+
+
+<p><em>Imagem do botão do menu como <code>&lt;span&gt;</code> em vez de botão</em></p>
+<p><strong>URLs a verificar:</strong></p>
+<ul>
+<li><a href="https://www.cmpv.pt/index.php">https://www.cmpv.pt/index.php</a> - menu principal</li>
+</ul>
+<p><strong>Recomendações:</strong></p>
+<ul>
+<li>Recomendamos a substituição dos elementos <code>&lt;span&gt;</code> utilizados como controlos de interface por elementos semânticos <code>&lt;button type="button"&gt;</code>.</li>
+<li>A abertura e fecho do menu deve ser gerenciada por um script em conjunto com o atributo <code>aria-expanded</code>.</li>
+<li>O botão menu, deve ter um nome acessível apropriado. Idealmente o botão deverá ter um texto visível "Menu" junto ao ícone.</li>
+</ul>
+</div>
+              </li>
+              <li class="evidence-item">
+                <p><span class="visually-hidden">evidência: </span><a href="https://github.com/a11y-PT/report_075/issues/29" class="issue-link" target="_blank" rel="noopener noreferrer">issue #29</a> <strong>Menu principal com navegação por teclado e estados de expansão incorretos</strong></p>
+                <div class="evidence-labels"><span class="label-tag label-checklist"><span class="sr-only">etiqueta: </span>chk 10 web</span><span class="label-tag label-nok"><span class="sr-only">etiqueta: </span>NOK</span><span class="label-tag label-requisito"><span class="sr-only">etiqueta: </span>R 1.2</span></div>
+                <div class="issue-content"><blockquote>
+<p>É possível selecionar as opções e as subopções do menu quer com rato quer com teclado.</p>
+<ul>
+<li><a href="https://amagovpt.github.io/kit-selo/checklists/checklist-10aspetos#n12">Ver requisito 1.2 da lista 10 aspetos</a></li>
+</ul>
+</blockquote>
+<p><strong>Evidências:</strong></p>
+<p>O menu principal apresenta problemas de acessibilidade tanto na navegação por teclado como na comunicação do estado das subopções aos leitores de ecrã.</p>
+<p>Ao utilizar apenas o teclado, o menu só pode ser navegado através das teclas de direção (setas), não sendo possível percorrer as opções utilizando <code>Tab</code> e <code>Shift + Tab</code>, conforme esperado para componentes de navegação.</p>
+<img src="https://github.com/user-attachments/assets/ff5e9e33-e819-4919-b929-0df5d6ba82d9" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;">
+
+
+
+<p><em>Usando o <code>Shift+TAB</code> e <code>TAB</code> o foco salta o menu para a pesquisa sem percorrer as opções principais.</em></p>
+<p>Adicionalmente, ao interagir com o menu através do rato, as subopções são expandidas quando o utilizador passa o cursor sobre os itens (hover). No entanto, o atributo aria-expanded não é atualizado para refletir essa alteração de estado. Como consequência, os leitores de ecrã não conseguem comunicar corretamente se uma opção se encontra expandida ou colapsada.</p>
+<img src="https://github.com/user-attachments/assets/6206c0f5-35d8-4c4d-b2cf-f962b78ccba8" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;">
+
+
+
+<p><em>Apesar do submenu de "Atualidade" estar expandido o <code>aria-expanded</code> continua como <code>false</code>.</em></p>
+<p><strong>URLs a verificar:</strong></p>
+<ul>
+<li><a href="https://www.cmpv.pt/index.php">https://www.cmpv.pt/index.php</a> - menu principal</li>
+</ul>
+<p><strong>Recomendações:</strong></p>
+<ul>
+<li>Garantir que todas as opções do menu podem ser acedidas e percorridas através das teclas Tab e Shift + Tab.</li>
+<li>Atualizar dinamicamente o atributo aria-expanded sempre que uma opção do menu seja expandida ou colapsada.</li>
+<li>Garantir que o estado visual e o estado anunciado às tecnologias de apoio permanecem sincronizados.</li>
+<li>Validar o comportamento do menu com teclado e leitores de ecrã para assegurar a correta comunicação dos estados de interação.</li>
+</ul>
+</div>
+              </li></ul>
+</div>
+<h4 class="requirement-title" id="req-chk10-r-1.3">Requisito 1.3 - As imagens-link, caso existam no menu, devem ter o correspondente equivalente alternativo em texto</h4>
+<div class="requirement-content">
+<p><span class="status-nok"><span class="sr-only">etiqueta: </span>NOK</span></p>
+<p>Lista de evidências recolhidas:</p>
+<ul class="evidence-list">
+
+              <li class="evidence-item">
+                <p><span class="visually-hidden">evidência: </span><a href="https://github.com/a11y-PT/report_075/issues/32" class="issue-link" target="_blank" rel="noopener noreferrer">issue #32</a> <strong>O menu mobile está com texto alternativo inapropriado</strong></p>
+                <div class="evidence-labels"><span class="label-tag label-checklist"><span class="sr-only">etiqueta: </span>chk 10 web</span><span class="label-tag label-nok"><span class="sr-only">etiqueta: </span>NOK</span><span class="label-tag label-requisito"><span class="sr-only">etiqueta: </span>R 1.3</span></div>
+                <div class="issue-content"><blockquote>
+<p>As imagem-link, caso existam no menu, devem ter o correspondente equivalente alternativo em texto.</p>
+<ul>
+<li><a href="https://amagovpt.github.io/kit-selo/checklists/checklist-10aspetos#n13">Ver requisito 1.3 da lista 10 aspetos</a></li>
+</ul>
+</blockquote>
+<p><strong>Evidências:</strong></p>
+<p>O botão mobile de abrir e fechar o menu não têm texto alternativo o que faz com que o leitor de ecrã não reconheça.</p>
+<img src="https://github.com/user-attachments/assets/8775e995-b601-4e29-ab0d-454416fd4ce4" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;">
+
+
+
+<p><em>Imagem do menu hambúrguer não sendo reconhecido pelo leitor de ecrã.</em></p>
+<p><strong>URLs a verificar:</strong></p>
+<ul>
+<li><a href="https://www.cmpv.pt/index.php">https://www.cmpv.pt/index.php</a> - versão mobile, menu</li>
+</ul>
+<p><strong>Recomendações:</strong></p>
+<ul>
+<li>Adicionar o nome acessível como aria-label="Menu" e o seu estado corretamente.</li>
+</ul>
+</div>
+              </li></ul>
+</div>
+<h4 class="requirement-title" id="req-chk10-r-2.1">Requisito 2.1 - Existe um título h1 marcado na página</h4>
+<div class="requirement-content">
+<p><span class="status-nok"><span class="sr-only">etiqueta: </span>NOK</span></p>
+<p>Lista de evidências recolhidas:</p>
+<ul class="evidence-list">
+
+              <li class="evidence-item">
+                <p><span class="visually-hidden">evidência: </span><a href="https://github.com/a11y-PT/report_075/issues/37" class="issue-link" target="_blank" rel="noopener noreferrer">issue #37</a> <strong>Existência de multiplos h1 na página web</strong></p>
+                <div class="evidence-labels"><span class="label-tag label-checklist"><span class="sr-only">etiqueta: </span>chk 10 web</span><span class="label-tag label-nok"><span class="sr-only">etiqueta: </span>NOK</span><span class="label-tag label-requisito"><span class="sr-only">etiqueta: </span>R 2.1</span></div>
+                <div class="issue-content"><blockquote>
+<p>Existe um título <code>&lt;h1&gt;</code> marcado na página.</p>
+<ul>
+<li><a href="https://amagovpt.github.io/kit-selo/checklists/checklist-10aspetos#n21">Ver requisito 2.1 da lista 10 aspetos</a></li>
+</ul>
+</blockquote>
+<p><strong>Evidências:</strong></p>
+<p>Cada página do website deve conter um único elemento <code>&lt;h1&gt;</code>, que represente o título principal do conteúdo. A utilização de múltiplos <code>&lt;h1&gt;</code> pode comprometer a interpretação da hierarquia da página por tecnologias de apoio.</p>
+<p>Nas páginas de notícias, verifica-se a existência de dois elementos <code>&lt;h1&gt;</code>, o que constitui uma utilização incorreta da estrutura de cabeçalhos.</p>
+<p>Esta duplicação poderá gerar problemas caso ambos os cabeçalhos h1 fiquem visíveis para os leitores de ecrã.</p>
+<img src="https://github.com/user-attachments/assets/d39c0bf7-9ae0-4170-96b3-47e5ae500537" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;">
+
+
+
+<p><em>Figura 1 - Identificação de dois cabeçalhos marcados com <code>&lt;h1&gt;</code> na mesma página. .</em></p>
+<p><strong>URLs a verificar:</strong></p>
+<p>Verificar todas as páginas de notícias.</p>
+<ul>
+<li><a href="https://www.cmpv.pt/index.php?op=noticias">https://www.cmpv.pt/index.php?op=noticias</a></li>
+<li><a href="https://www.cmpv.pt/index.php?op=noticias&amp;id=4575">https://www.cmpv.pt/index.php?op=noticias&amp;id=4575</a></li>
+</ul>
+<p><strong>Recomendações</strong></p>
+<ul>
+<li>Remover o título "Notícias ver mais" das páginas de notícias.</li>
+</ul>
+</div>
+              </li></ul>
+</div>
+<h4 class="requirement-title" id="req-chk10-r-2.2">Requisito 2.2 - Existe uma marcação hierarquizada de títulos e subtítulos na página (h1...h6)</h4>
+<div class="requirement-content">
+<p><span class="status-nok"><span class="sr-only">etiqueta: </span>NOK</span></p>
+<p>Lista de evidências recolhidas:</p>
+<ul class="evidence-list">
+
+              <li class="evidence-item">
+                <p><span class="visually-hidden">evidência: </span><a href="https://github.com/a11y-PT/report_075/issues/38" class="issue-link" target="_blank" rel="noopener noreferrer">issue #38</a> <strong>Incorreta marcação de títulos e subtítulos</strong></p>
+                <div class="evidence-labels"><span class="label-tag label-checklist"><span class="sr-only">etiqueta: </span>chk 10 web</span><span class="label-tag label-nok"><span class="sr-only">etiqueta: </span>NOK</span><span class="label-tag label-requisito"><span class="sr-only">etiqueta: </span>R 2.2</span></div>
+                <div class="issue-content"><blockquote>
+<p>Existe uma marcação hierarquizada de títulos e subtítulos na página <code>&lt;h1&gt;...&lt;h6&gt;</code>.<br>– <a href="https://amagovpt.github.io/kit-selo/checklists/checklist-10aspetos#n22">ver requisito 2.2 na lista 10 aspetos</a></p>
+</blockquote>
+<p><strong>Evidências:</strong></p>
+<p>Foram identificadas secções do website onde elementos que funcionam visualmente como títulos e subtítulos se encontram marcados com <code>&lt;span&gt;</code> em vez de elementos de cabeçalho semanticamente adequados.</p>
+<p>Esta implementação compromete a correta estrutura hierárquica da página e dificulta a navegação por utilizadores de tecnologias de apoio.</p>
+<img src="https://github.com/user-attachments/assets/d0f93716-07f4-400c-844b-a9efd95987db" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;">
+
+
+
+<p><em>Figura 1 - Exemplo de cabeçalho marcado com <code>&lt;span&gt;</code> .</em></p>
+<p><strong>URLs a verificar:</strong></p>
+<p>Verificar todas as páginas do website. Algumas a verificar:</p>
+<ul>
+<li><a href="https://www.cmpv.pt/index.php">https://www.cmpv.pt/index.php</a></li>
+<li><a href="https://www.cmpv.pt/index.php?op=noticias">https://www.cmpv.pt/index.php?op=noticias</a></li>
+<li><a href="https://www.cmpv.pt/index.php?op=20">https://www.cmpv.pt/index.php?op=20</a></li>
+<li><a href="https://www.cmpv.pt/index.php?op=noticias&amp;id=4567">https://www.cmpv.pt/index.php?op=noticias&amp;id=4567</a> - Em todas as páginas de notícias o elemento "Notícias Relacionadas" deve ser alterado para cabeçalho.</li>
+<li><a href="https://www.cmpv.pt/index.php?op=22">https://www.cmpv.pt/index.php?op=22</a></li>
+<li><a href="https://www.cmpv.pt/index.php?op=24">https://www.cmpv.pt/index.php?op=24</a></li>
+</ul>
+<p><strong>Recomendações:</strong></p>
+<ul>
+<li>Substituir os elementos <code>&lt;span&gt;</code> utilizados como títulos e subtítulos por elementos de cabeçalho semanticamente adequados (<code>&lt;h1&gt;</code>–<code>&lt;h6&gt;</code>).</li>
+<li>Garantir que os níveis dos cabeçalhos respeitam a hierarquia semântica da página.</li>
+</ul>
+</div>
+              </li>
+              <li class="evidence-item">
+                <p><span class="visually-hidden">evidência: </span><a href="https://github.com/a11y-PT/report_075/issues/11" class="issue-link" target="_blank" rel="noopener noreferrer">issue #11</a> <strong>Saltos na hierarquia de cabeçalhos</strong></p>
+                <div class="evidence-labels"><span class="label-tag label-checklist"><span class="sr-only">etiqueta: </span>chk 10 web</span><span class="label-tag label-nok"><span class="sr-only">etiqueta: </span>NOK</span><span class="label-tag label-requisito"><span class="sr-only">etiqueta: </span>R 2.2</span></div>
+                <div class="issue-content"><blockquote>
+<p>Existe uma marcação hierarquizada de títulos e subtítulos na página <code>&lt;h1&gt;...&lt;h6&gt;</code>.<br>– <a href="https://amagovpt.github.io/kit-selo/checklists/checklist-10aspetos#n22">ver requisito 2.2 na lista 10 aspetos</a></p>
+</blockquote>
+<p><strong>Evidências:</strong></p>
+<p>Em todas as páginas do website foram identificados saltos na hierarquia de cabeçalhos, verificando-se a utilização de um elemento <code>&lt;h5&gt;</code> sem existência prévia de outros níveis de cabeçalho .</p>
+<p>Esta implementação compromete a correta estrutura semântica da página e dificulta a navegação por utilizadores de tecnologias de apoio.</p>
+<img src="https://github.com/user-attachments/assets/f9d64d77-158b-4810-8de8-7a086f6c5d33" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;">
+
+
+
+<p><em>Figura 1 -  Estrutura de cabeçalhos da página da <a href="https://www.cmpv.pt/index.php">homepage</a>.</em> </p>
+<p><strong>URLs a verificar:</strong></p>
+<p>Verificar todas as páginas do website.</p>
+<ul>
+<li><a href="https://www.cmpv.pt/index.php">https://www.cmpv.pt/index.php</a></li>
+</ul>
+<p><strong>Recomendações:</strong></p>
+<ul>
+<li>Ter 1 título h1 (que marca o texto que representa o título da página ou, no caso da Homepage, o logo da entidade);</li>
+<li>Ter as várias secções do documento marcadas com h2;</li>
+<li>Ter as várias subsecções de h2 marcadas com h3, as subsecções destas com h4 e assim hierarquicamente encadeados até h6;</li>
+<li>Evitar ter elementos de hierarquia inferior sem um elemento de hierarquia imediatamente superior (subsecções órfãs). Por exemplo, ter um h3 sem a correspondente h2, ou h4 sem a correspondente h3.</li>
+</ul>
+</div>
+              </li></ul>
+</div>
+<h4 class="requirement-title" id="req-chk10-r-3.1">Requisito 3.1 - As células que constituem os cabeçalhos da tabela estão marcadas com o elemento th</h4>
+<div class="requirement-content">
+<p><span class="status-nok"><span class="sr-only">etiqueta: </span>NOK</span></p>
+<p>Lista de evidências recolhidas:</p>
+<ul class="evidence-list">
+
+              <li class="evidence-item">
+                <p><span class="visually-hidden">evidência: </span><a href="https://github.com/a11y-PT/report_075/issues/44" class="issue-link" target="_blank" rel="noopener noreferrer">issue #44</a> <strong>Estrutura de tabela sem marcação semântica adequada</strong></p>
+                <div class="evidence-labels"><span class="label-tag label-checklist"><span class="sr-only">etiqueta: </span>chk 10 web</span><span class="label-tag label-nok"><span class="sr-only">etiqueta: </span>NOK</span><span class="label-tag label-requisito"><span class="sr-only">etiqueta: </span>R 3.1</span></div>
+                <div class="issue-content"><blockquote>
+<p>As células que constituem os cabeçalhos da tabela estão marcadas com o elemento <code>&lt;th&gt;</code>.<br>– <a href="https://amagovpt.github.io/kit-selo/checklists/checklist-10aspetos#n31">ver requisito 3.1 na lista 10 aspetos</a></p>
+</blockquote>
+<p><strong>Evidências:</strong></p>
+<p>Foi verificado que a informação apresentada na Figura 1 possui uma disposição visual semelhante a uma tabela, mas não se encontra estruturada com os elementos HTML apropriados para tabelas de dados.</p>
+<p>A estrutura é construída através de elementos genéricos, como <code>&lt;div&gt;</code> e <code>&lt;span&gt;</code>, não existindo elementos semânticos de tabela, tais como <code>&lt;table&gt;</code>, <code>&lt;tr&gt;</code>, <code>&lt;th&gt;</code> e <code>&lt;td&gt;</code>.</p>
+<p>Esta implementação dificulta a interpretação das relações entre cabeçalhos e dados por tecnologias de apoio, comprometendo a acessibilidade da informação apresentada.</p>
+<img src="https://github.com/user-attachments/assets/6533674a-cbaf-417e-98fb-06480c9b1153" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;">
+
+
+
+
+<p><strong>URLs a verificar:</strong></p>
+<p><a href="https://www.cmpv.pt/index.php?op=2">https://www.cmpv.pt/index.php?op=2</a></p>
+<p><strong>Recomendações:</strong></p>
+<ul>
+<li>Reestruturar o conteúdo utilizando elementos semânticos de tabela (<code>&lt;table&gt;</code>, <code>&lt;tr&gt;</code>, <code>&lt;th&gt;</code> e <code>&lt;td&gt;</code>), caso a informação represente efetivamente dados tabulares.</li>
+<li>Garantir que os cabeçalhos da tabela são marcados com o elemento <code>&lt;th&gt;</code>.</li>
+<li>Assegurar que a estrutura da tabela permite a correta associação entre cabeçalhos e células de dados por tecnologias de apoio.</li>
+</ul>
+</div>
+              </li></ul>
+</div>
+<h4 class="requirement-title" id="req-chk10-r-3.2">Requisito 3.2 - A legenda da tabela está marcada com o elemento caption</h4>
+<div class="requirement-content">
+<p><span class="status-nok"><span class="sr-only">etiqueta: </span>NOK</span></p>
+<p>Lista de evidências recolhidas:</p>
+<ul class="evidence-list">
+
+              <li class="evidence-item">
+                <p><span class="visually-hidden">evidência: </span><a href="https://github.com/a11y-PT/report_075/issues/45" class="issue-link" target="_blank" rel="noopener noreferrer">issue #45</a> <strong>Estrutura de tabela sem marcação semântica adequada</strong></p>
+                <div class="evidence-labels"><span class="label-tag label-checklist"><span class="sr-only">etiqueta: </span>chk 10 web</span><span class="label-tag label-nok"><span class="sr-only">etiqueta: </span>NOK</span><span class="label-tag label-requisito"><span class="sr-only">etiqueta: </span>R 3.2</span></div>
+                <div class="issue-content"><blockquote>
+<p>A legenda da tabela está marcada com o elemento <code>&lt;caption&gt;</code><br>– <a href="https://amagovpt.github.io/kit-selo/checklists/checklist-10aspetos#n32">ver requisito 3.2 na lista 10 aspetos</a></p>
+</blockquote>
+<p><strong>Evidências:</strong></p>
+<p>Foi verificado que a informação apresentada na Figura 1 possui uma disposição visual semelhante a uma tabela, mas não se encontra estruturada com os elementos HTML apropriados para tabelas de dados.</p>
+<p>A estrutura é construída através de elementos genéricos, como <code>&lt;div&gt;</code> e <code>&lt;span&gt;</code>, não existindo elementos semânticos de tabela, tais como <code>&lt;table&gt;</code>, <code>&lt;tr&gt;</code>, <code>&lt;th&gt;</code> e <code>&lt;td&gt;</code>.</p>
+<p>Esta implementação dificulta a interpretação das relações entre cabeçalhos e dados por tecnologias de apoio, comprometendo a acessibilidade da informação apresentada.</p>
+<img src="https://github.com/user-attachments/assets/f7d10cd7-984b-4338-8333-aa0031528064" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;">
+
+
+
+<p><em>Figura 1 - Tabela sem a estrutura correta de tabelas .</em></p>
+<p><strong>URLs a verificar:</strong></p>
+<p><a href="https://www.cmpv.pt/index.php?op=2">https://www.cmpv.pt/index.php?op=2</a></p>
+<p><strong>Recomendações:</strong></p>
+<ul>
+<li>Reestruturar o conteúdo utilizando elementos semânticos de tabela (<code>&lt;table&gt;</code>, <code>&lt;tr&gt;</code>, <code>&lt;th&gt;</code> e <code>&lt;td&gt;</code>), caso a informação represente efetivamente dados tabulares.</li>
+<li>Adicionar uma legenda descritiva através do elemento <code>&lt;caption&gt;</code>, identificando o conteúdo e a finalidade da tabela.</li>
+<li>Assegurar que a estrutura da tabela permite a correta associação entre cabeçalhos e células de dados por tecnologias de apoio.</li>
+</ul>
+</div>
+              </li></ul>
+</div>
+<h4 class="requirement-title" id="req-chk10-r-4.1">Requisito 4.1 - Ao clicar com o rato na etiqueta, o cursor surge no respetivo campo de edição</h4>
+<div class="requirement-content">
+<p><span class="status-nok"><span class="sr-only">etiqueta: </span>NOK</span></p>
+<p>Lista de evidências recolhidas:</p>
+<ul class="evidence-list">
+
+              <li class="evidence-item">
+                <p><span class="visually-hidden">evidência: </span><a href="https://github.com/a11y-PT/report_075/issues/26" class="issue-link" target="_blank" rel="noopener noreferrer">issue #26</a> <strong>Campo de pesquisa com ausência de etiqueta acessível e dependência de placeholder</strong></p>
+                <div class="evidence-labels"><span class="label-tag label-checklist"><span class="sr-only">etiqueta: </span>chk 10 web</span><span class="label-tag label-nok"><span class="sr-only">etiqueta: </span>NOK</span><span class="label-tag label-requisito"><span class="sr-only">etiqueta: </span>R 4.1</span></div>
+                <div class="issue-content"><blockquote>
+<p>Ao clicar com o rato na etiqueta, o cursor surge no respetivo campo de edição.<br>– <a href="https://amagovpt.github.io/kit-selo/checklists/checklist-10aspetos#n41">ver requisito 4.1 na lista 10 aspetos</a></p>
+</blockquote>
+<p><strong>Evidencias:</strong></p>
+<p>No código analisado referente ao campo de pesquisa do cabeçalho, verifica-se a ausência de um elemento <code>&lt;label&gt;</code> associado ao campo de pesquisa através de for e id.</p>
+<p>O campo apresenta apenas os seguintes mecanismos de identificação:</p>
+<ul>
+<li><code>placeholder="Pesquisa"</code>, utilizado como principal elemento identificador visual</li>
+<li>Ausência de associação programática entre uma etiqueta e o input</li>
+</ul>
+<p>Adicionalmente, o <code>placeholder</code> não constitui uma etiqueta acessível, uma vez que desaparece durante a interação do utilizador, deixando de fornecer contexto funcional sobre o campo de pesquisa.</p>
+<img src="https://github.com/user-attachments/assets/52e627db-87db-4be6-b200-64ee4f0db59b" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;">
+
+
+
+<p><em>Figura 1 - Campo de pesquisa no cabeçalho sem etiqueta acessível associada</em></p>
+<p><strong>URLs a verificar:</strong></p>
+<ul>
+<li><a href="https://www.cmpv.pt/index.php">https://www.cmpv.pt/index.php</a> (Em todo o website)</li>
+</ul>
+<p><strong>Recomendações:</strong><br>Recomenda-se garantir que o campo de pesquisa possui um nome acessível corretamente definido, através da seguinte abordagem:</p>
+<ul>
+<li>Implementação de um elemento <code>&lt;label&gt;</code> associado ao input através de for e id</li>
+</ul>
+<p>Adicionalmente, recomenda-se:</p>
+<ul>
+<li>Evitar utilizar o <code>placeholder</code> como substituto de etiqueta, sendo este apenas um elemento de apoio ao preenchimento</li>
+<li>Garantir que o campo mantém sempre um nome acessível persistente, independentemente do estado de interação</li>
+<li>Assegurar consistência entre identificação visual e programática do controlo</li>
+</ul>
+</div>
+              </li></ul>
+</div>
+<h4 class="requirement-title" id="req-chk10-r-4.2">Requisito 4.2 - É possível identificar os campos de preenchimento obrigatório quando se usa apenas um leitor de ecrã</h4>
+<div class="requirement-content">
+<p><span class="status-na"><span class="sr-only">etiqueta: </span>N/A</span></p>
+<p>Lista de evidências recolhidas:</p>
+<ul class="evidence-list">
+
+              <li class="evidence-item">
+                <p><span class="visually-hidden">evidência: </span><a href="https://github.com/a11y-PT/report_075/issues/28" class="issue-link" target="_blank" rel="noopener noreferrer">issue #28</a> <strong>Ausência de formulários de preenchimento para validação de campos obrigatórios</strong></p>
+                <div class="evidence-labels"><span class="label-tag label-checklist"><span class="sr-only">etiqueta: </span>chk 10 web</span><span class="label-tag label-na"><span class="sr-only">etiqueta: </span>N/A</span><span class="label-tag label-requisito"><span class="sr-only">etiqueta: </span>R 4.2</span></div>
+                <div class="issue-content"><blockquote>
+<p>É possível identificar os campos de preenchimento obrigatório quando se usa apenas um leitor de ecrã.<br>– <a href="https://amagovpt.github.io/kit-selo/checklists/checklist-10aspetos#n42">ver requisito 4.2 na lista 10 aspetos</a></p>
+</blockquote>
+<p><strong>Evidências:</strong><br>Durante a análise realizada, não foram identificados formulários de preenchimento que permitissem validar a identificação de campos obrigatórios através de leitores de ecrã. Sendo assim, o critério é considerado não aplicável.</p>
+</div>
+              </li></ul>
+</div>
+<h4 class="requirement-title" id="req-chk10-r-4.3">Requisito 4.3 - É possível localizar e ler as mensagens de erro usando apenas um leitor de ecrã</h4>
+<div class="requirement-content">
+<p><span class="status-na"><span class="sr-only">etiqueta: </span>N/A</span></p>
+<p>Lista de evidências recolhidas:</p>
+<ul class="evidence-list">
+
+              <li class="evidence-item">
+                <p><span class="visually-hidden">evidência: </span><a href="https://github.com/a11y-PT/report_075/issues/33" class="issue-link" target="_blank" rel="noopener noreferrer">issue #33</a> <strong>Ausência de formulários de preenchimento para validação de mensagens de erro</strong></p>
+                <div class="evidence-labels"><span class="label-tag label-checklist"><span class="sr-only">etiqueta: </span>chk 10 web</span><span class="label-tag label-na"><span class="sr-only">etiqueta: </span>N/A</span><span class="label-tag label-requisito"><span class="sr-only">etiqueta: </span>R 4.3</span></div>
+                <div class="issue-content"><blockquote>
+<p>É possível localizar e ler as mensagens de erro usando apenas um leitor de ecrã.<br>– <a href="https://amagovpt.github.io/kit-selo/checklists/checklist-10aspetos#n43">ver requisito 4.3 na lista 10 aspetos</a></p>
+</blockquote>
+<p><strong>Evidências:</strong><br>Durante a análise realizada, não foram identificados formulários de preenchimento que permitissem validar a apresentação e leitura de mensagens de erro através de leitores de ecrã. Sendo assim, o critério é considerado não aplicável.</p>
+</div>
+              </li></ul>
+</div>
+<h4 class="requirement-title" id="req-chk10-r-5.1">Requisito 5.1 - A imagem ou gráfico tem um equivalente alternativo em texto curto e correto</h4>
+<div class="requirement-content">
+<p><span class="status-nok"><span class="sr-only">etiqueta: </span>NOK</span></p>
+<p>Lista de evidências recolhidas:</p>
+<ul class="evidence-list">
+
+              <li class="evidence-item">
+                <p><span class="visually-hidden">evidência: </span><a href="https://github.com/a11y-PT/report_075/issues/24" class="issue-link" target="_blank" rel="noopener noreferrer">issue #24</a> <strong>Imagens decorativas sem atributo alt=&quot;&quot;</strong></p>
+                <div class="evidence-labels"><span class="label-tag label-checklist"><span class="sr-only">etiqueta: </span>chk 10 web</span><span class="label-tag label-nok"><span class="sr-only">etiqueta: </span>NOK</span><span class="label-tag label-requisito"><span class="sr-only">etiqueta: </span>R 5.1</span></div>
+                <div class="issue-content"><p>A imagem ou gráfico tem um equivalente em texto curto e correto.<br>– <a href="https://amagovpt.github.io/kit-selo/checklists/checklist-10aspetos#n51">ver requisito 5.1 na lista 10 aspetos</a></p>
+<p><strong>Evidências:</strong><br>Verifica-se que algumas imagens decorativas não possuem o atributo alt definido. Mesmo quando a imagem não transmite informação relevante, o atributo alt deve estar presente e nulo (alt="").</p>
+<img src="https://github.com/user-attachments/assets/6d213c30-f5ad-4276-8a25-e868186960db" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;">
+
+
+
+<p><strong>URLs a verificar:</strong></p>
+<ul>
+<li><a href="https://www.cmpv.pt/index.php?op=2">https://www.cmpv.pt/index.php?op=2</a> (todos os links de praias)</li>
+<li><a href="https://www.cmpv.pt/index.php?op=4">https://www.cmpv.pt/index.php?op=4</a></li>
+<li><a href="https://www.cmpv.pt/index.php?op=3">https://www.cmpv.pt/index.php?op=3</a></li>
+<li><a href="https://www.cmpv.pt/index.php?op=14">https://www.cmpv.pt/index.php?op=14</a></li>
+</ul>
+<p><strong>Recomendações:</strong></p>
+<p>Quando as imagens forem decorativas e não transmitirem informação relevante, o atributo alt deve estar presente e vazio (alt=""). Por outro lado, quando as imagens transmitirem informação necessária para a compreensão do conteúdo, o atributo alt deve ser preenchido com uma descrição adequada e significativa.</p>
+</div>
+              </li>
+              <li class="evidence-item">
+                <p><span class="visually-hidden">evidência: </span><a href="https://github.com/a11y-PT/report_075/issues/4" class="issue-link" target="_blank" rel="noopener noreferrer">issue #4</a> <strong>Imgens não decorativas sem texto alternativo</strong></p>
+                <div class="evidence-labels"><span class="label-tag label-checklist"><span class="sr-only">etiqueta: </span>chk 10 web</span><span class="label-tag label-nok"><span class="sr-only">etiqueta: </span>NOK</span><span class="label-tag label-requisito"><span class="sr-only">etiqueta: </span>R 5.1</span></div>
+                <div class="issue-content"><p>A imagem ou gráfico tem um equivalente em texto curto e correto.<br>– <a href="https://amagovpt.github.io/kit-selo/checklists/checklist-10aspetos#n51">ver requisito 5.1 na lista 10 aspetos</a></p>
+<p><strong>Evidências:</strong></p>
+<p>Verifica-se que a imagem do logótipo do Município da Praia da Vitória possui a palavra “logo” no texto alternativo. O texto alternativo deve identificar de forma clara a entidade representada, sem incluir termos como “logo” ou “logótipo”, uma vez que as tecnologias de apoio já anunciam o elemento como imagem. Neste caso deve limitar-se à identificação clara da entidade representada. Por exemplo: <code>alt="Município da Praia da Vitória"</code>.</p>
+<img src="https://github.com/user-attachments/assets/d3a1584d-0de1-4219-a44d-8be9f82992b9" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;">
+
+
+
+<p><strong>URLs a verificar:</strong></p>
+<ul>
+<li><a href="https://www.cmpv.pt/index.php">https://www.cmpv.pt/index.php</a></li>
+<li><a href="https://www.cmpv.pt/index.php?op=29">https://www.cmpv.pt/index.php?op=29</a></li>
+<li><a href="https://www.cmpv.pt/index.php?op=27">https://www.cmpv.pt/index.php?op=27</a></li>
+</ul>
+<p><strong>Recomendações:</strong></p>
+<p>Imagens não decorativas devem possuir uma descrição breve associada, por exemplo através do atributo alt, que identifique de forma clara a finalidade da imagem no contexto da página.</p>
+</div>
+              </li>
+              <li class="evidence-item">
+                <p><span class="visually-hidden">evidência: </span><a href="https://github.com/a11y-PT/report_075/issues/1" class="issue-link" target="_blank" rel="noopener noreferrer">issue #1</a> <strong>(Melhoria) Imagens decorativas com texto alternativo indevido</strong></p>
+                <div class="evidence-labels"><span class="label-tag label-melhoria"><span class="sr-only">etiqueta: </span>melhoria</span><span class="label-tag label-checklist"><span class="sr-only">etiqueta: </span>chk 10 web</span><span class="label-tag label-requisito"><span class="sr-only">etiqueta: </span>R 5.1</span></div>
+                <div class="issue-content"><p>A imagem ou gráfico tem um equivalente em texto curto e correto.<br>– <a href="https://amagovpt.github.io/kit-selo/checklists/checklist-10aspetos#n51">ver requisito 5.1 na lista 10 aspetos</a></p>
+<p><strong>Evidências:</strong><br>Verifica-se que algumas imagens funcionam apenas como apoio visual, encontrando-se a informação relevante já disponibilizada através de título, descrição e links acessíveis em texto. Nestes casos, as imagens podem ser tratadas como decorativas, devendo possuir alt="".</p>
+<img src="https://github.com/user-attachments/assets/cd3c06b1-771e-4890-a776-e1a5e2b265dc" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;">
+
+
+
+
+
+<img src="https://github.com/user-attachments/assets/8fb73230-02fc-4d06-bcfe-2db23d33d14f" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;">
+
+
+
+
+
+
+
+<p><strong>URLs a verificar:</strong></p>
+<ul>
+<li><a href="https://www.cmpv.pt/index.php">https://www.cmpv.pt/index.php</a></li>
+<li><a href="https://www.cmpv.pt/index.php?op=agenda&amp;id=783">https://www.cmpv.pt/index.php?op=agenda&amp;id=783</a></li>
+<li><a href="https://www.cmpv.pt/index.php?op=noticias&amp;id=4577">https://www.cmpv.pt/index.php?op=noticias&amp;id=4577</a></li>
+<li><a href="https://www.cmpv.pt/index.php?op=noticias">https://www.cmpv.pt/index.php?op=noticias</a></li>
+<li><a href="https://www.cmpv.pt/index.php?op=agenda&amp;ano=0&amp;mes=0&amp;catid=1">https://www.cmpv.pt/index.php?op=agenda&amp;ano=0&amp;mes=0&amp;catid=1</a></li>
+<li><a href="https://www.cmpv.pt/index.php?op=41">https://www.cmpv.pt/index.php?op=41</a></li>
+<li><a href="https://www.cmpv.pt/index.php?op=agenda&amp;ano=0&amp;mes=0&amp;catid=8">https://www.cmpv.pt/index.php?op=agenda&amp;ano=0&amp;mes=0&amp;catid=8</a></li>
+</ul>
+<p><strong>Recomendações:</strong></p>
+<p>Recomenda-se que as imagens decorativas tenham alt="".</p>
+</div>
+              </li></ul>
+</div>
+<h4 class="requirement-title" id="req-chk10-r-5.2">Requisito 5.2 - O gráfico é acompanhado de uma descrição longa</h4>
+<div class="requirement-content">
+<p><span class="status-nok"><span class="sr-only">etiqueta: </span>NOK</span></p>
+<p>Lista de evidências recolhidas:</p>
+<ul class="evidence-list">
+
+              <li class="evidence-item">
+                <p><span class="visually-hidden">evidência: </span><a href="https://github.com/a11y-PT/report_075/issues/2" class="issue-link" target="_blank" rel="noopener noreferrer">issue #2</a> <strong>Gráfico não está totalmente acessível a tecnologias de apoio</strong></p>
+                <div class="evidence-labels"><span class="label-tag label-checklist"><span class="sr-only">etiqueta: </span>chk 10 web</span><span class="label-tag label-nok"><span class="sr-only">etiqueta: </span>NOK</span><span class="label-tag label-requisito"><span class="sr-only">etiqueta: </span>R 5.2</span></div>
+                <div class="issue-content"><blockquote>
+<p>O gráfico é acompanhado de uma descrição longa.<br>– <a href="https://amagovpt.github.io/kit-selo/checklists/checklist-10aspetos#n52">ver requisito 5.2 na lista 10 aspetos</a></p>
+</blockquote>
+<p><strong>Evidências:</strong></p>
+<p>O gráfico apresentado não está totalmente acessível a tecnologias de apoio, uma vez que a informação principal é transmitida através de elementos visuais e não é possível aceder a todas as informações do gráfico utilizando tecnologias de apoio.</p>
+<img src="https://github.com/user-attachments/assets/0a8f2c56-3e36-454f-94e4-375c58f2c82f" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;">
+
+
+
+<hr>
+<p>Verificou-se que o gráfico, embora possuam um texto associado para descrever o seu conteúdo, não apresentam uma descrição breve que indique a sua finalidade no contexto em que se encontram. As imagens não decorativas devem possuir um equivalente alternativo em texto curto e correto, por exemplo através do atributo alt, descrevendo de forma fiel o propósito da imagem para que este seja compreendido por tecnologias de apoio.</p>
+<img src="https://github.com/user-attachments/assets/bff1514e-1c86-4c1f-8ab3-0e35bf0f1a72" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;">
+
+
+
+<hr>
+<p>O gráfico expõe à navegação por leitor de ecrã vários elementos visuais internos e externos, como barras coloridas, segmentos e numeração dos ODS. Como estes elementos representam partes redundantes da mesma visualização, a leitura individual de todos eles torna a experiência excessivamente repetitiva e dificulta a compreensão global do gráfico.</p>
+<p>Recomenda-se que o gráfico tenha um equivalente alternativo curto e correto, identificando a finalidade da visualização e descrevendo cada número de ODS apresentado de forma clara. Adicionalmente, os elementos gráficos redundantes ou meramente decorativos devem ser ocultados das tecnologias de apoio, evitando que barras, segmentos, ícones ou números sejam anunciados separadamente quando fazem parte da mesma unidade informativa.</p>
+<img src="https://github.com/user-attachments/assets/16ad6ca7-d36c-4f76-9a3c-1f04aa12a069" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;">
+
+
+
+
+
+
+<p><strong>URLs a verificar:</strong></p>
+<ul>
+<li><a href="https://www.cmpv.pt/index.php?op=61">https://www.cmpv.pt/index.php?op=61</a> (todos os gráficos)</li>
+<li><a href="https://www.cmpv.pt/index.php?op=25">https://www.cmpv.pt/index.php?op=25</a></li>
+</ul>
+<p><strong>Recomendações:</strong></p>
+<ul>
+<li><p>Recomenda-se que a informação seja apresentada diretamente na página sem o uso de iframes ou ferramentas externas, caso não seja possível devem partilhar as mesma informação através de ficheiros na mesma página.</p>
+</li>
+<li><p>O nome acessível deve ser aplicado ao elemento agrupador que representa cada ODS completo, por exemplo o elemento <code>&lt;g&gt;</code> que contém a barra/segmento, o número e o ícone. Esse grupo deve receber um nome acessível claro através do atributo aria-label, por exemplo: <code>aria-label="ODS 2: Erradicar a fome. Desempenho do município neste objetivo."</code> e também deve ser inserido um role="img". Para mais informações: <a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Reference/Roles/img_role">https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Reference/Roles/img_role</a></p>
+</li>
+<li><p>Os elementos decorativos devem possuir <code>aria-hidden="true"</code> e <code>focusable="false"</code>.</p>
+</li>
+</ul>
+</div>
+              </li></ul>
+</div>
+<h4 class="requirement-title" id="req-chk10-r-5.3">Requisito 5.3 - As imagens-link têm um equivalente alternativo correto</h4>
+<div class="requirement-content">
+<p><span class="status-nok"><span class="sr-only">etiqueta: </span>NOK</span></p>
+<p>Lista de evidências recolhidas:</p>
+<ul class="evidence-list">
+
+              <li class="evidence-item">
+                <p><span class="visually-hidden">evidência: </span><a href="https://github.com/a11y-PT/report_075/issues/7" class="issue-link" target="_blank" rel="noopener noreferrer">issue #7</a> <strong>Imagem-link com texto alternativo incorreto</strong></p>
+                <div class="evidence-labels"><span class="label-tag label-checklist"><span class="sr-only">etiqueta: </span>chk 10 web</span><span class="label-tag label-nok"><span class="sr-only">etiqueta: </span>NOK</span><span class="label-tag label-requisito"><span class="sr-only">etiqueta: </span>R 5.3</span></div>
+                <div class="issue-content"><blockquote>
+<p>As imagens-link têm um equivalente alternativo correto.<br>– <a href="https://amagovpt.github.io/kit-selo/checklists/checklist-10aspetos#n53">ver requisito 5.3 na lista 10 aspetos</a></p>
+</blockquote>
+<p><strong>Evidências:</strong><br>Verifica-se que a imagem do logótipo utilizada como link para a página inicial, apresenta um texto alternativo que não descreve adequadamente o seu propósito (acesso à página inicial). Verifica-se ainda a existência de uma descrição associada ao link através de arial-label, que pode ser removida pois a imagem já possui texto alternativo.</p>
+<img src="https://github.com/user-attachments/assets/2da5a3db-d322-44f9-bc25-545b9b0a72a1" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;">
+
+
+
+
+
+
+
+<p><strong>URLs a verificar:</strong></p>
+<ul>
+<li><a href="https://www.cmpv.pt/index.php?op=noticias&amp;id=4282">https://www.cmpv.pt/index.php?op=noticias&amp;id=4282</a></li>
+</ul>
+<p><strong>Recomendações:</strong></p>
+<ul>
+<li>O texto alternativo deve transmitir claramente o destino ou finalidade do link. Por exemplo: alt="Município da Praia da Vitória – página inicial".</li>
+</ul>
+</div>
+              </li></ul>
+</div>
+<h4 class="requirement-title" id="req-chk10-r-6.1">Requisito 6.1 - No corpo de um documento, o rácio de contraste entre a cor do texto normal (menor que 18 pontos ou menor que 14 pontos negrito) e a cor do fundo é superior a 4,5:1</h4>
+<div class="requirement-content">
+<p><span class="status-nok"><span class="sr-only">etiqueta: </span>NOK</span></p>
+<p>Lista de evidências recolhidas:</p>
+<ul class="evidence-list">
+
+              <li class="evidence-item">
+                <p><span class="visually-hidden">evidência: </span><a href="https://github.com/a11y-PT/report_075/issues/56" class="issue-link" target="_blank" rel="noopener noreferrer">issue #56</a> <strong>Texto normal não tem contraste suficiente</strong></p>
+                <div class="evidence-labels"><span class="label-tag label-checklist"><span class="sr-only">etiqueta: </span>chk 10 web</span><span class="label-tag label-nok"><span class="sr-only">etiqueta: </span>NOK</span><span class="label-tag label-requisito"><span class="sr-only">etiqueta: </span>R 6.1</span></div>
+                <div class="issue-content"><blockquote>
+<p>No corpo de um documento, o rácio de contraste entre a cor do texto normal (menor que 18 pontos ou menor que 14 pontos negrito) e a cor do fundo é superior a 4,5:1.<br>– <a href="https://amagovpt.github.io/kit-selo/checklists/checklist-10aspetos#n61">ver requisito 6.1 na lista 10 aspetos</a></p>
+</blockquote>
+<p><strong>Evidências</strong></p>
+<ul>
+<li>O contraste no texto normal (menor que 18 pontos ou menor que 14 pontos negrito) das páginas deve ser, no mínimo 4,5:1, para que pessoas com baixa visão consigam ler o texto.</li>
+</ul>
+<p>O website apresenta problemas de contraste na avaliação com a ferramenta <a href="https://wave.webaim.org/">WAVE</a> para o texto normal na componente do calendário, relacionados com insuficiência de contraste, afetando diretamente a legibilidade, nos textos que possuem a combinação de cores #F2F2F2(cor de primeiro plano e plano de fundo) que torna o texto da label invisível. (Figura 1)</p>
+<img src="https://github.com/user-attachments/assets/2bc3fd94-68df-4e22-a215-81e1543c3158" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;">
+
+
+
+<p><em>Figura 1- Texto normal com problemas de contraste na página <a href="https://www.cmpv.pt/index.php?op=agenda&amp;ano=0&amp;mes=0&amp;catid=8">Agenda Cultural - Cinema</a></em></p>
+<p><strong>URLs a verificar</strong></p>
+<ul>
+<li><a href="https://www.cmpv.pt/index.php?op=agenda&amp;ano=0&amp;mes=0&amp;catid=8">https://www.cmpv.pt/index.php?op=agenda&amp;ano=0&amp;mes=0&amp;catid=8</a> </li>
+<li><a href="https://www.cmpv.pt/index.php?op=agenda&amp;ano=0&amp;mes=0&amp;catid=1">https://www.cmpv.pt/index.php?op=agenda&amp;ano=0&amp;mes=0&amp;catid=1</a><br><em>(Rever mesmo problema em todas as páginas que possuem calendário)</em></li>
+</ul>
+<p><strong>Recomendações</strong><br>Recomendamos a revisão das combinações  de cores das páginas de todo website para garantir o acesso aos conteúdos, assegurando os valores mínimos de contraste para texto normal. Garantir consistência nos estados visuais (normal, hover, foco) com contraste adequado;</p>
+</div>
+              </li></ul>
+</div>
+<h4 class="requirement-title" id="req-chk10-r-7.2">Requisito 7.2 - O vídeo ou o áudio deve conter preferencialmente legendas fechadas sincronizadas. Caso não seja possível, no mínimo, deve disponibilizar-se uma transcrição textual</h4>
+<div class="requirement-content">
+<p><span class="status-ok"><span class="sr-only">etiqueta: </span>OK</span> (no entanto contém 1 melhoria que se recomenda efetuar)</p>
+<p>Lista de evidências recolhidas:</p>
+<ul class="evidence-list">
+
+              <li class="evidence-item">
+                <p><span class="visually-hidden">evidência: </span><a href="https://github.com/a11y-PT/report_075/issues/58" class="issue-link" target="_blank" rel="noopener noreferrer">issue #58</a> <strong>Legendas sincronizadas disponíveis apenas em inglês</strong></p>
+                <div class="evidence-labels"><span class="label-tag label-melhoria"><span class="sr-only">etiqueta: </span>melhoria</span><span class="label-tag label-checklist"><span class="sr-only">etiqueta: </span>chk 10 web</span><span class="label-tag label-requisito"><span class="sr-only">etiqueta: </span>R 7.2</span></div>
+                <div class="issue-content"><blockquote>
+<p>O vídeo ou áudio deve conter preferencialmente legendas fechadas sincronizadas.<br>– <a href="https://amagovpt.github.io/kit-selo/checklists/checklist-10aspetos#n72">ver requisito 7.2 na lista 10 aspetos</a></p>
+</blockquote>
+<p><strong>Evidências:</strong></p>
+<p>Verificou-se que o vídeo disponibilizado na página inicial inclui legendas sincronizadas. Contudo, as legendas encontram-se disponíveis apenas em inglês.</p>
+<p>Atendendo a que o website se destina maioritariamente a um público de língua portuguesa, a disponibilização de legendas em português poderá contribuir para uma melhor compreensão dos conteúdos multimédia e para uma experiência de utilização mais inclusiva.</p>
+<img src="https://github.com/user-attachments/assets/6aab85ff-5c04-461d-b37b-d69de0f29f71" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;">
+
+
+
+<p><em>Figura 1 - Legendas disponíveis apenas em inglês no vídeo da página inicial .</em></p>
+<p><strong>URLs a verificar:</strong></p>
+<p><a href="https://www.cmpv.pt/index.php">https://www.cmpv.pt/index.php</a></p>
+<p><strong>Recomendações:</strong></p>
+<ul>
+<li>Disponibilizar legendas sincronizadas em português para os conteúdos multimédia.</li>
+<li>Sempre que possível, permitir a seleção entre diferentes idiomas de legendagem.</li>
+</ul>
+</div>
+              </li></ul>
+</div>
+<h4 class="requirement-title" id="req-chk10-r-8.3">Requisito 8.3 - Quando se retira a CSS, deve ser possível reconhecer a semântica dos diversos elementos</h4>
+<div class="requirement-content">
+<p><span class="status-nok"><span class="sr-only">etiqueta: </span>NOK</span></p>
+<p>Lista de evidências recolhidas:</p>
+<ul class="evidence-list">
+
+              <li class="evidence-item">
+                <p><span class="visually-hidden">evidência: </span><a href="https://github.com/a11y-PT/report_075/issues/25" class="issue-link" target="_blank" rel="noopener noreferrer">issue #25</a> <strong>Controlos de navegação do carrossel sem estrutura semântica e nome acessível</strong></p>
+                <div class="evidence-labels"><span class="label-tag label-checklist"><span class="sr-only">etiqueta: </span>chk 10 web</span><span class="label-tag label-nok"><span class="sr-only">etiqueta: </span>NOK</span><span class="label-tag label-requisito"><span class="sr-only">etiqueta: </span>R 8.3</span></div>
+                <div class="issue-content"><blockquote>
+<p>Quando se retira o CSS, deve ser possível reconhecer a semântica dos diversos elementos.<br>– <a href="https://amagovpt.github.io/kit-selo/checklists/checklist-10aspetos#n83">ver requisito 8.3 na lista 10 aspetos</a></p>
+</blockquote>
+<p><strong>Evidências:</strong></p>
+<p>Na página inicial onde é apresentado o carrossel de eventos (agenda), existem controlos de navegação que permitem avançar e recuar entre os itens.</p>
+<p>Estes controlos são apresentados visualmente através de ícones de setas, mas estão implementados com elementos não semânticos (<code>&lt;i&gt;</code>), sem utilização de elementos interativos adequados como <code>&lt;button&gt;</code>.</p>
+<p>Adicionalmente, não existe qualquer nome acessível associado aos controlos, o que dificulta a sua interpretação por tecnologias de apoio.</p>
+<img src="https://github.com/user-attachments/assets/01deca6a-6ed9-4bb1-bef2-6539ff66bab3" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;">
+
+
+
+<p><em>Figura 1 - Controlos de navegação do carrossel implementados com elementos não semânticos e sem nome acessível.</em></p>
+<p><strong>URLs a verificar:</strong></p>
+<ul>
+<li><a href="https://www.cmpv.pt/">https://www.cmpv.pt/</a> (secção de "Agenda Municipal")</li>
+</ul>
+<p><strong>Recomendações:</strong></p>
+<p>Recomenda-se a substituição dos elementos não semânticos utilizados para navegação do carrossel por elementos interativos adequados, como <code>&lt;button&gt;</code>.</p>
+<p>Cada controlo deve possuir um nome acessível claro, através de <code>aria-label</code>, garantindo que a sua função é corretamente identificada por tecnologias de apoio.</p>
+<p>Deve ainda ser garantido que os controlos são totalmente operáveis por teclado e que mantêm o foco visível durante a interação.</p>
+</div>
+              </li>
+              <li class="evidence-item">
+                <p><span class="visually-hidden">evidência: </span><a href="https://github.com/a11y-PT/report_075/issues/22" class="issue-link" target="_blank" rel="noopener noreferrer">issue #22</a> <strong>Ausência de landmarks semânticos</strong></p>
+                <div class="evidence-labels"><span class="label-tag label-checklist"><span class="sr-only">etiqueta: </span>chk 10 web</span><span class="label-tag label-nok"><span class="sr-only">etiqueta: </span>NOK</span><span class="label-tag label-requisito"><span class="sr-only">etiqueta: </span>R 8.3</span></div>
+                <div class="issue-content"><blockquote>
+<p>Quando se retira o CSS, deve ser possível reconhecer a semântica dos diversos elementos.<br>– <a href="https://amagovpt.github.io/kit-selo/checklists/checklist-10aspetos#n83">ver requisito 8.3 na lista 10 aspetos</a></p>
+</blockquote>
+<p><strong>Evidências:</strong></p>
+<p>Observa-se a ausência de landmarks semânticos que permitam identificar programaticamente as principais regiões da página (ex.: cabeçalho, navegação, conteúdo principal e rodapé). A estrutura da interface aparenta estar predominantemente assente em elementos genéricos (<code>&lt;div&gt;</code>), sem utilização consistente de elementos HTML semânticos ou roles equivalentes.</p>
+<p>A inexistência destas regiões semânticas dificulta a navegação por tecnologias de apoio, nomeadamente leitores de ecrã, impedindo os utilizadores de saltar rapidamente entre áreas relevantes da página.</p>
+<img src="https://github.com/user-attachments/assets/041f8f93-5d25-4caf-a8ed-42c4358a397e" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;">
+
+
+
+<p><em>Figura 1 - Ausência de landmarks semânticos identificáveis na estrutura da página</em></p>
+<p><strong>URLs a verificar:</strong></p>
+<ul>
+<li><a href="https://www.cmpv.pt/index.php">https://www.cmpv.pt/index.php</a></li>
+<li>(em todo o website)</li>
+</ul>
+<p><strong>Recomendações:</strong></p>
+<ul>
+<li>Implementar landmarks semânticos para as principais regiões da página, recorrendo preferencialmente a elementos HTML nativos como <code>&lt;header&gt;</code>, <code>&lt;nav&gt;</code>, <code>&lt;main&gt;</code> e <code>&lt;footer&gt;</code></li>
+<li>Garantir a existência de uma única região principal (<code>&lt;main&gt;</code>) por página</li>
+<li>Quando não for possível utilizar elementos HTML semânticos, aplicar roles ARIA equivalentes, como <code>role="banner"</code>, <code>role="navigation"</code>, <code>role="main"</code> e <code>role="contentinfo"</code></li>
+<li>Validar a estrutura semântica com tecnologias de apoio para confirmar que as regiões são corretamente identificadas e anunciadas ao utilizador.</li>
+</ul>
+<p>Referência: <a href="https://bolsadeemprego.cm-camaradelobos.pt/">MDN – ARIA landmark roles</a></p>
+</div>
+              </li>
+              <li class="evidence-item">
+                <p><span class="visually-hidden">evidência: </span><a href="https://github.com/a11y-PT/report_075/issues/18" class="issue-link" target="_blank" rel="noopener noreferrer">issue #18</a> <strong>Listagem de conteúdos sem estrutura semântica adequada</strong></p>
+                <div class="evidence-labels"><span class="label-tag label-checklist"><span class="sr-only">etiqueta: </span>chk 10 web</span><span class="label-tag label-nok"><span class="sr-only">etiqueta: </span>NOK</span><span class="label-tag label-requisito"><span class="sr-only">etiqueta: </span>R 8.3</span></div>
+                <div class="issue-content"><blockquote>
+<p>Quando se retira o CSS, deve ser possível reconhecer a semântica dos diversos elementos.<br>– <a href="https://amagovpt.github.io/kit-selo/checklists/checklist-10aspetos#n83">ver requisito 8.3 na lista 10 aspetos</a></p>
+</blockquote>
+<p><strong>Evidências:</strong><br>Na página principal, têm várias secções em que cada item é apresentado como um conjunto de conteúdos relacionados (imagem, data, título, descrição e ligação para detalhe), estruturado com múltiplos elementos <code>&lt;div&gt;</code>.</p>
+<p>No entanto, estes itens não estão inseridos numa estrutura semântica de lista (<code>&lt;ul&gt;</code> / <code>&lt;li&gt;</code>), apesar de representarem claramente uma listagem de conteúdos homogéneos.</p>
+<img src="https://github.com/user-attachments/assets/bc2075fe-b54a-403e-94a8-0ea881ce2969" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;">
+
+
+
+<p><em>Figura 1 – Listagem de eventos estruturada com elementos <code>&lt;div&gt;</code> sem utilização de lista semântica</em></p>
+<p>Adicionalmente, observou-se uma listagem cronológica de anos apresentada apenas como sequência de elementos <code>&lt;a&gt;</code>, separados visualmente através de <code>&amp;nbsp</code>; para criar espaçamento entre os itens.</p>
+<p>Apesar de representar claramente um conjunto homogéneo de opções de navegação temporal, esta estrutura não se encontra organizada semanticamente como lista (<code>&lt;ul&gt;</code> / <code>&lt;ol&gt;</code> com <code>&lt;li&gt;</code>), dificultando a identificação programática da relação entre os elementos.</p>
+<p>Quando os estilos CSS são removidos, os anos surgem como uma sequência contínua de links, sem indicação clara de agrupamento ou ordem estrutural. Adicionalmente, a utilização de espaços não separáveis (<code>&amp;nbsp;</code>) para controlo visual do espaçamento constitui uma técnica de apresentação visual, não devendo ser utilizada como mecanismo de estruturação de conteúdos.</p>
+<img src="https://github.com/user-attachments/assets/f7a121bc-cf1f-430e-a494-dbe5360640d4" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;">
+
+
+
+<p><em>Figura 2 - Listagem cronológica de anos estruturada apenas com links e espaçamento visual (<code>&amp;nbsp;</code>), sem lista semântica</em></p>
+<p>Como consequência, as tecnologias de apoio não conseguem identificar programaticamente que estes elementos pertencem a um conjunto, nem o número total de itens existentes.</p>
+<p>Quando os estilos CSS são desativados, os conteúdos passam a ser apresentados como blocos isolados, sem indicação clara da relação entre si, dificultando a compreensão da estrutura da informação.</p>
+<p><strong>URLs a verificar:</strong></p>
+<ul>
+<li><a href="https://www.cmpv.pt/index.php">https://www.cmpv.pt/index.php</a></li>
+<li><a href="https://www.cmpv.pt/index.php?op=noticias">https://www.cmpv.pt/index.php?op=noticias</a></li>
+<li><a href="https://www.cmpv.pt/index.php?op=info&amp;tipo_info=2">https://www.cmpv.pt/index.php?op=info&amp;tipo_info=2</a></li>
+<li><a href="https://www.cmpv.pt/index.php?op=2">https://www.cmpv.pt/index.php?op=2</a></li>
+<li>(vários elementos em todo o website)</li>
+</ul>
+<p><strong>Recomendações:</strong></p>
+<ul>
+<li>Deve ser verificado este padrão em todo o website.</li>
+<li>Os conjuntos de conteúdos que representem listagens (ex.: documentos, notícias, resultados) devem ser estruturados semanticamente como listas (<code>&lt;ul&gt;</code> ou <code>&lt;ol&gt;</code>), com cada item representado por um <code>&lt;li&gt;</code>.</li>
+<li>Cada item da lista deve agrupar toda a informação relacionada (categoria, título, descrição e ações) dentro do respetivo <code>&lt;li&gt;</code>.</li>
+<li>Evitar a utilização exclusiva de elementos genéricos (<code>&lt;div&gt;</code>) para representar agrupamentos de conteúdos.</li>
+<li>Validar com leitores de ecrã para garantir que o agrupamento e o número de itens são corretamente anunciados.</li>
+</ul>
+</div>
+              </li></ul>
+</div>
+<h4 class="requirement-title" id="req-chk10-r-9.1">Requisito 9.1 - Quando a caixa de diálogo é aberta, o foco (cursor do Browser) move-se para um elemento dentro da caixa de diálogo</h4>
+<div class="requirement-content">
+<p><span class="status-na"><span class="sr-only">etiqueta: </span>N/A</span></p>
+<p>Lista de evidências recolhidas:</p>
+<ul class="evidence-list">
+
+              <li class="evidence-item">
+                <p><span class="visually-hidden">evidência: </span><a href="https://github.com/a11y-PT/report_075/issues/31" class="issue-link" target="_blank" rel="noopener noreferrer">issue #31</a> <strong>Quando a caixa de diálogo é aberta, o foco move-se para um elemento dentro da caixa de diálogo</strong></p>
+                <div class="evidence-labels"><span class="label-tag label-checklist"><span class="sr-only">etiqueta: </span>chk 10 web</span><span class="label-tag label-na"><span class="sr-only">etiqueta: </span>N/A</span><span class="label-tag label-requisito"><span class="sr-only">etiqueta: </span>R 9.1</span></div>
+                <div class="issue-content"><blockquote>
+<p>Quando a caixa de diálogo é aberta, o foco (cursor do Browser) move-se para um elemento dentro da caixa de diálogo<br>– <a href="https://amagovpt.github.io/kit-selo/checklists/checklist-10aspetos#n91">ver requisito 9.1 na lista 10 aspetos</a></p>
+</blockquote>
+<p><strong>Evidências:</strong></p>
+<p>Verifica-se que as modais presentes no website são apresentadas dentro de um iframe, cuja validação será realizada separadamente. Neste contexto, o critério não se aplica à página avaliada, uma vez que não foram identificadas outras modais diretamente implementadas no website.</p>
+<p><strong>Recomendações:</strong><br>N/A</p>
+</div>
+              </li></ul>
+</div>
+<h4 class="requirement-title" id="req-chk10-r-9.2">Requisito 9.2 - Quando uma caixa de diálogo está aberta, a navegação com teclado (Browser ou Tecnologia de apoio) tem de ficar circunscrita aos elementos que compõem a caixa de diálogo</h4>
+<div class="requirement-content">
+<p><span class="status-na"><span class="sr-only">etiqueta: </span>N/A</span></p>
+<p>Lista de evidências recolhidas:</p>
+<ul class="evidence-list">
+
+              <li class="evidence-item">
+                <p><span class="visually-hidden">evidência: </span><a href="https://github.com/a11y-PT/report_075/issues/34" class="issue-link" target="_blank" rel="noopener noreferrer">issue #34</a> <strong>O foco fica limitado a caixa de diálogo</strong></p>
+                <div class="evidence-labels"><span class="label-tag label-checklist"><span class="sr-only">etiqueta: </span>chk 10 web</span><span class="label-tag label-na"><span class="sr-only">etiqueta: </span>N/A</span><span class="label-tag label-requisito"><span class="sr-only">etiqueta: </span>R 9.2</span></div>
+                <div class="issue-content"><blockquote>
+<p>Quando uma caixa de diálogo está aberta, a navegação com teclado (Browser ou Tecnologia de apoio) tem de ficar circunscrita aos elementos que compõem a caixa de diálogo<br>– <a href="https://amagovpt.github.io/kit-selo/checklists/checklist-10aspetos#n92">ver requisito 9.2 na lista 10 aspetos</a></p>
+</blockquote>
+<p><strong>Evidências:</strong></p>
+<p>Verifica-se que as modais presentes no website são apresentadas dentro de um iframe, cuja validação será realizada separadamente. Neste contexto, o critério não se aplica à página avaliada, uma vez que não foram identificadas outras modais diretamente implementadas no website.</p>
+<p><strong>Recomendações:</strong><br>N/A</p>
+</div>
+              </li></ul>
+</div>
+<h4 class="requirement-title" id="req-chk10-r-9.3">Requisito 9.3 - A caixa de diálogo tem de ter um mecanismo que permita sair ou fechar a caixa, quer através de teclado quer através de um dispositivo apontador</h4>
+<div class="requirement-content">
+<p><span class="status-na"><span class="sr-only">etiqueta: </span>N/A</span></p>
+<p>Lista de evidências recolhidas:</p>
+<ul class="evidence-list">
+
+              <li class="evidence-item">
+                <p><span class="visually-hidden">evidência: </span><a href="https://github.com/a11y-PT/report_075/issues/35" class="issue-link" target="_blank" rel="noopener noreferrer">issue #35</a> <strong>A caixa de diálogo tem de ter um mecanismo que permita sair ou fechar a caixa</strong></p>
+                <div class="evidence-labels"><span class="label-tag label-checklist"><span class="sr-only">etiqueta: </span>chk 10 web</span><span class="label-tag label-na"><span class="sr-only">etiqueta: </span>N/A</span><span class="label-tag label-requisito"><span class="sr-only">etiqueta: </span>R 9.3</span></div>
+                <div class="issue-content"><blockquote>
+<p>A caixa de diálogo tem de ter um mecanismo que permita sair ou fechar a caixa, quer através de teclado quer através de um dispositivo apontador<br>– <a href="https://amagovpt.github.io/kit-selo/checklists/checklist-10aspetos#n93">ver requisito 9.3 na lista 10 aspetos</a></p>
+</blockquote>
+<p><strong>Evidências:</strong></p>
+<p>Verifica-se que as modais presentes no website são apresentadas dentro de um iframe, cuja validação será realizada separadamente. Neste contexto, o critério não se aplica à página avaliada, uma vez que não foram identificadas outras modais diretamente implementadas no website.</p>
+<p><strong>Recomendações:</strong><br>N/A</p>
+</div>
+              </li></ul>
+</div>
+<h4 class="requirement-title" id="req-chk10-r-9.4">Requisito 9.4 - Quando a caixa de diálogo fecha, o foco (cursor do Browser) deve voltar ao elemento interativo que a invocou</h4>
+<div class="requirement-content">
+<p><span class="status-na"><span class="sr-only">etiqueta: </span>N/A</span></p>
+<p>Lista de evidências recolhidas:</p>
+<ul class="evidence-list">
+
+              <li class="evidence-item">
+                <p><span class="visually-hidden">evidência: </span><a href="https://github.com/a11y-PT/report_075/issues/36" class="issue-link" target="_blank" rel="noopener noreferrer">issue #36</a> <strong>Ao fechar a caixa de diálogo o cursor retorna ao elemento que o acionou</strong></p>
+                <div class="evidence-labels"><span class="label-tag label-checklist"><span class="sr-only">etiqueta: </span>chk 10 web</span><span class="label-tag label-na"><span class="sr-only">etiqueta: </span>N/A</span><span class="label-tag label-requisito"><span class="sr-only">etiqueta: </span>R 9.4</span></div>
+                <div class="issue-content"><blockquote>
+<p>Quando a caixa de diálogo fecha, o foco (cursor do Browser) deve voltar ao elemento interativo que a invocou<br>– <a href="https://amagovpt.github.io/kit-selo/checklists/checklist-10aspetos#n94">ver requisito 9.4 na lista 10 aspetos</a></p>
+</blockquote>
+<p><strong>Evidências:</strong></p>
+<p>Verifica-se que as modais presentes no website são apresentadas dentro de um iframe, cuja validação será realizada separadamente. Neste contexto, o critério não se aplica à página avaliada, uma vez que não foram identificadas outras modais diretamente implementadas no website.</p>
+<p><strong>Recomendações:</strong><br>N/A</p>
+</div>
+              </li></ul>
+</div>
+<h4 class="requirement-title" id="req-chk10-r-10.1">Requisito 10.1 - Nos ficheiros PDF é possível, no mínimo, extrair o conteúdo textual para formato TXT</h4>
+<div class="requirement-content">
+<p><span class="status-nok"><span class="sr-only">etiqueta: </span>NOK</span></p>
+<p>Lista de evidências recolhidas:</p>
+<ul class="evidence-list">
+
+              <li class="evidence-item">
+                <p><span class="visually-hidden">evidência: </span><a href="https://github.com/a11y-PT/report_075/issues/43" class="issue-link" target="_blank" rel="noopener noreferrer">issue #43</a> <strong>Não foi possível extrair o conteúdo textual para formato TXT</strong></p>
+                <div class="evidence-labels"><span class="label-tag label-checklist"><span class="sr-only">etiqueta: </span>chk 10 web</span><span class="label-tag label-nok"><span class="sr-only">etiqueta: </span>NOK</span><span class="label-tag label-requisito"><span class="sr-only">etiqueta: </span>R 10.1</span></div>
+                <div class="issue-content"><blockquote>
+<p>Nos ficheiros PDF é possível, no mínimo, extrair o conteúdo textual para formato TXT.<br>– <a href="https://amagovpt.github.io/kit-selo/checklists/checklist-10aspetos#n101">ver requisito 10.1 na lista 10 aspetos</a></p>
+</blockquote>
+<p><strong>Evidências:</strong></p>
+<p>Verifica-se que em alguns ficheiros PDF no website, não é possível extrair o conteúdo textual para formato TXT.</p>
+<img src="https://github.com/user-attachments/assets/3eedad5f-0d13-4808-bb5f-16d5e548f41e" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;">
+
+
+
+<p><em>Figura 1 - Exemplo de ficheiro PDF onde não foi possível extrair o conteúdo para formato txt .</em></p>
+<p><strong>URLs a verificar:</strong></p>
+<p><a href="https://www.cmpv.pt/index.php?op=2">https://www.cmpv.pt/index.php?op=2</a><br><a href="https://www.cmpv.pt/userFiles/documentos/Ambiente/ColorADDxPraiaDaVitoria-PRAIAS_sintese-vertical-V2.pdf">https://www.cmpv.pt/userFiles/documentos/Ambiente/ColorADDxPraiaDaVitoria-PRAIAS_sintese-vertical-V2.pdf</a></p>
+<p><strong>Recomendações:</strong></p>
+<ul>
+<li>Devem garantir que os ficheiros PDF são otimizados para que seja possível extrair a informação para um processador de texto. Desta forma, garante-se que o texto pode ser lido por leitores de ecrã na ordem correta. No caso de documentos que são fotocópias, contendo apenas imagens, é possível converter os documentos para texto através do <a href="https://www.adobe.com/pt/acrobat/how-to/ocr-software-convert-pdf-to-text.html">Reconhecimento Óptico de Caracteres (OCR) da Adobe</a>.</li>
+</ul>
+</div>
+              </li></ul>
+</div>
+
+      </div>
+      <div class="checklist-section">
+        <h3 id="checklist-conteudo">Checklist Conteúdo</h3>
+        <p><span class="status-nok"><span class="sr-only">etiqueta: </span>NOK</span></p>
+        
+      <p><strong>Nível de conformidade:</strong></p>
+        <ul>
+          <li><strong>Checklist Conteúdo</strong>: 35.3% (6/17)
+            <ul>
+              <li>Requisitos avaliados: 17 (17 aplicáveis)</li>
+              <li>Requisitos OK: 6</li>
+              <li>Requisitos NOK: 11</li>
+              
+            </ul>
+          </li>
+        </ul>
+    
+        <h4 class="requirement-title" id="req-conteudo-r-1.1">Requisito 1.1 - O sítio Web apresenta um resumo breve do seu propósito, visível sem se fazer scroll</h4>
+<div class="requirement-content">
+<p><span class="status-nok"><span class="sr-only">etiqueta: </span>NOK</span></p>
+<p>Lista de evidências recolhidas:</p>
+<ul class="evidence-list">
+
+              <li class="evidence-item">
+                <p><span class="visually-hidden">evidência: </span><a href="https://github.com/a11y-PT/report_075/issues/3" class="issue-link" target="_blank" rel="noopener noreferrer">issue #3</a> <strong>Falta de resumo na página inicial do website</strong></p>
+                <div class="evidence-labels"><span class="label-tag label-nok"><span class="sr-only">etiqueta: </span>NOK</span><span class="label-tag label-checklist"><span class="sr-only">etiqueta: </span>chk conteúdo</span><span class="label-tag label-requisito"><span class="sr-only">etiqueta: </span>R 1.1</span></div>
+                <div class="issue-content"><blockquote>
+<p>O sítio Web apresenta um resumo breve do seu propósito, visível sem fazer scroll.<br>– <a href="https://amagovpt.github.io/kit-selo/checklists/checklist-conteudo#n11">ver requisito 1.1 na lista Conteúdo</a></p>
+</blockquote>
+<p><strong>Evidências:</strong></p>
+<p>Na página principal do website da <a href="https://www.cmpv.pt/index.php">Cãmara Municipal da Praia da Vitória</a>, não aparece presente um resumo breve do próposito do site.</p>
+<img src="https://github.com/user-attachments/assets/a1fb64a5-a693-4059-bb30-0be2bee60689" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;">
+
+
+
+<p><em>Imagem da página principal sem fazer scroll</em></p>
+<p><strong>URLs a verificar:</strong></p>
+<ul>
+<li><a href="https://www.cmpv.pt/index.php">https://www.cmpv.pt/index.php</a></li>
+</ul>
+<p><strong>Recomendações:</strong></p>
+<p>O propósito deve transmitir, de forma clara, o que o utilizador pode efetivamente encontrar e realizar no website. Esse propósito deve ser imediatamente visível na página, sem ser necessário fazer scroll, avançar no slideshow, entre outros.</p>
+<p>Como exemplo de uma boa prática, é possível verificar no website <a href="https://selo.usabilidade.gov.pt/">selo.usabilidade.gov</a> que o seu propósito está escrito no topo da página:</p>
+<img src="https://github.com/user-attachments/assets/dbc7d6b1-77db-4e77-a871-4efb4d2ca1ae" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;">
+
+
+
+<p><em>Imagem exemplo de uma frase de propósito do website selo.usabilidade.gov</em></p>
+</div>
+              </li></ul>
+</div>
+<h4 class="requirement-title" id="req-conteudo-r-1.2">Requisito 1.2 - Os termos mais complexos têm uma definição agregada</h4>
+<div class="requirement-content">
+<p><span class="status-nok"><span class="sr-only">etiqueta: </span>NOK</span></p>
+<p>Lista de evidências recolhidas:</p>
+<ul class="evidence-list">
+
+              <li class="evidence-item">
+                <p><span class="visually-hidden">evidência: </span><a href="https://github.com/a11y-PT/report_075/issues/8" class="issue-link" target="_blank" rel="noopener noreferrer">issue #8</a> <strong>Falta de glossário para termos complexos</strong></p>
+                <div class="evidence-labels"><span class="label-tag label-nok"><span class="sr-only">etiqueta: </span>NOK</span><span class="label-tag label-checklist"><span class="sr-only">etiqueta: </span>chk conteúdo</span><span class="label-tag label-requisito"><span class="sr-only">etiqueta: </span>R 1.2</span></div>
+                <div class="issue-content"><blockquote>
+<p>Os termos mais complexos têm uma definição agregada.<br>– <a href="https://amagovpt.github.io/kit-selo/checklists/checklist-conteudo#n12">ver requisito 1.2 na lista Conteúdo</a></p>
+</blockquote>
+<p><strong>Evidências:</strong></p>
+<p>Ao longo do website, é possível identificar a utilização de diversos termos técnicos e complexos que surgem sem qualquer definição ou explicação associada. Na ausência de um glossário ou de mecanismos que permitam esclarecer esses conceitos, os utilizadores podem ter dificuldade em compreender plenamente a informação apresentada, especialmente aqueles que não estão familiarizados com a terminologia utilizada.</p>
+<img src="https://github.com/user-attachments/assets/bbc90203-77a1-4cfa-afdc-9343089939d5" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;">
+
+
+
+<p><em>Imagem de vários termos complexos sem definição agregada. Disponível em: <a href="https://www.cmpv.pt/index.php?op=41">https://www.cmpv.pt/index.php?op=41</a></em></p>
+<img src="https://github.com/user-attachments/assets/190256b1-50c3-4cbe-8019-3866444f4d8b" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;">
+
+
+
+<p><em>Imagem com o termo complexo "FEAMP" sem definição agregada. Disponível em: <a href="https://www.cmpv.pt/index.php?op=50">https://www.cmpv.pt/index.php?op=50</a></em></p>
+<p><strong>URLs a verificar:</strong></p>
+<ul>
+<li><a href="https://www.cmpv.pt/index.php">https://www.cmpv.pt/index.php</a> - "SIG" no menu principal (Concelho-&gt;Urbanismo e Obras-&gt;Geoportal/SIG)</li>
+<li><a href="https://www.cmpv.pt/index.php?op=22">https://www.cmpv.pt/index.php?op=22</a> - todos os partidos</li>
+<li><a href="https://www.cmpv.pt/index.php?op=24">https://www.cmpv.pt/index.php?op=24</a> - todos os partidos</li>
+<li><a href="https://www.cmpv.pt/index.php?op=56">https://www.cmpv.pt/index.php?op=56</a> - "PRR"</li>
+<li><a href="https://www.cmpv.pt/index.php?op=27">https://www.cmpv.pt/index.php?op=27</a> - "PO" e "PIRUS"</li>
+<li>entre outros</li>
+</ul>
+<p> <strong>Recomendações:</strong></p>
+<p>Recomenda-se a criação de um glossário que permita a utilização consistente de siglas ao longo do website, evitando que o utilizador tenha de procurar repetidamente a sua definição noutros parágrafos.</p>
+<p>Como exemplo podem visualizar o glossario do <a href="https://www.acessibilidade.gov.pt/glossario/">acessibilidade.gov</a>.</p>
+</div>
+              </li></ul>
+</div>
+<h4 class="requirement-title" id="req-conteudo-r-1.4">Requisito 1.4 - A informação sobre a entidade responsável pelo conteúdo está em todas as páginas</h4>
+<div class="requirement-content">
+<p><span class="status-nok"><span class="sr-only">etiqueta: </span>NOK</span></p>
+<p>Lista de evidências recolhidas:</p>
+<ul class="evidence-list">
+
+              <li class="evidence-item">
+                <p><span class="visually-hidden">evidência: </span><a href="https://github.com/a11y-PT/report_075/issues/5" class="issue-link" target="_blank" rel="noopener noreferrer">issue #5</a> <strong>Informação da Entidade Responsável Não Apresentada por Extenso</strong></p>
+                <div class="evidence-labels"><span class="label-tag label-nok"><span class="sr-only">etiqueta: </span>NOK</span><span class="label-tag label-checklist"><span class="sr-only">etiqueta: </span>chk conteúdo</span><span class="label-tag label-requisito"><span class="sr-only">etiqueta: </span>R 1.4</span></div>
+                <div class="issue-content"><blockquote>
+<p>A informação sobre a entidade responsável pelo conteúdo está em todas as páginas.<br>– <a href="https://amagovpt.github.io/kit-selo/checklists/checklist-conteudo#n14">ver requisito 1.4 na lista Conteúdo</a></p>
+</blockquote>
+<p><strong>Evidências:</strong></p>
+<p>Todas as páginas devem apresentar o nome da entidade responsável pelos conteúdos publicados no site. O nome da entidade pode ser apresentado através de um logótipo ou texto, mas deve estar por extenso.</p>
+<p>Apesar de existir no rodapé o logotipo da entidade e informação dos contactos. Observamos que o nome da entidade responsável não está disponível por extenso.</p>
+<img src="https://github.com/user-attachments/assets/917555d2-1c56-433e-b82a-eddf473525f0" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;">
+
+
+
+<p><em>Imagem do rodapé sem o nome da entidade responsável escrito em extenso.</em></p>
+<p><strong>URLs a verificar:</strong></p>
+<ul>
+<li><a href="https://www.cmpv.pt/index.php">https://www.cmpv.pt/index.php</a> - rodapé</li>
+</ul>
+<p> <strong>Recomendações:</strong></p>
+<p>Deve ser adicionado o nome da entidade por extenso em todo o website, como é possível observar no <a href="https://www.acessibilidade.gov.pt/">acessibilidade.gov.pt</a>:</p>
+<img src="https://github.com/user-attachments/assets/d7b03d4f-3088-4d1c-994a-f68039a6642f" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;">
+
+
+
+<p><em>Imagem de exemplo do rodapé do <a href="https://www.acessibilidade.gov.pt/">acessibilidade.gov.pt</a></em></p>
+</div>
+              </li></ul>
+</div>
+<h4 class="requirement-title" id="req-conteudo-r-2.1">Requisito 2.1 - O tipo de letra do corpo do documento é adequado e o tamanho da letra é, no mínimo, de 12 pontos</h4>
+<div class="requirement-content">
+<p><span class="status-nok"><span class="sr-only">etiqueta: </span>NOK</span></p>
+<p>Lista de evidências recolhidas:</p>
+<ul class="evidence-list">
+
+              <li class="evidence-item">
+                <p><span class="visually-hidden">evidência: </span><a href="https://github.com/a11y-PT/report_075/issues/49" class="issue-link" target="_blank" rel="noopener noreferrer">issue #49</a> <strong>O corpo de texto tem um tamanho inferior a 12pt (equivalente a 16px)</strong></p>
+                <div class="evidence-labels"><span class="label-tag label-nok"><span class="sr-only">etiqueta: </span>NOK</span><span class="label-tag label-checklist"><span class="sr-only">etiqueta: </span>chk conteúdo</span><span class="label-tag label-requisito"><span class="sr-only">etiqueta: </span>R 2.1</span></div>
+                <div class="issue-content"><blockquote>
+<p>O tipo de letra do corpo do documento é adequado e o tamanho da letra é, no mínimo, de 12 pontos.<br>– <a href="https://amagovpt.github.io/kit-selo/checklists/checklist-conteudo#n21">ver requisito 2.1 na lista Conteúdo</a></p>
+</blockquote>
+<p><strong>Notas gerais:</strong><br>Para garantir a legibilidade do corpo de texto, este deve ter um tamanho igual ou superior a 12pt, que equivale a 16px.</p>
+<p><strong>Evidências:</strong><br>Verificámos que em algumas páginas do site da <a href="https://www.cmpv.pt/index.php">Câmara Municipal da Praia da Vitória</a>, como na página <a href="https://www.cmpv.pt/index.php?op=noticias&amp;id=4433">Festas da Praia da Vitória 2024: Ivandro, HMB, On the Road, Van Zee, Wet Bed Gang, Ti-notas, Sara Correia, Teto e Diogo Piçarra na Dreamzone by Monster e Manuel Telles Bastos, João Pamplona e Miguel Moura na Tourada de Praça</a>, o tamanho de letra do documento está abaixo dos 12pt (equivalente a 16px).</p>
+<img src="https://github.com/user-attachments/assets/9ec5c329-a660-411f-80a1-351407809745" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;">
+
+
+<p><em>Figura – Análise do texto da página <a href="https://www.cmpv.pt/index.php">Câmara Municipal da Praia da Vitória</a>, como na página <a href="https://www.cmpv.pt/index.php?op=noticias&amp;id=4433">Festas da Praia da Vitória 2024: Ivandro, HMB, On the Road, Van Zee, Wet Bed Gang, Ti-notas, Sara Correia, Teto e Diogo Piçarra na Dreamzone by Monster e Manuel Telles Bastos, João Pamplona e Miguel Moura na Tourada de Praça</a> através do Google Inspector. O tamanho do texto (style=”font-size:14px;”) está destacado através de um retângulo de borda preta.</em></p>
+<p><strong>Recomendações:</strong><br>Recomendamos ajustar o tamanho do texto do conteúdo principal do site para que tenha, pelo menos, 12 pt (equivalente a 16 px).</p>
+</div>
+              </li></ul>
+</div>
+<h4 class="requirement-title" id="req-conteudo-r-2.3">Requisito 2.3 - Blocos e linhas de texto com largura não superior a 100 caracteres</h4>
+<div class="requirement-content">
+<p><span class="status-nok"><span class="sr-only">etiqueta: </span>NOK</span></p>
+<p>Lista de evidências recolhidas:</p>
+<ul class="evidence-list">
+
+              <li class="evidence-item">
+                <p><span class="visually-hidden">evidência: </span><a href="https://github.com/a11y-PT/report_075/issues/51" class="issue-link" target="_blank" rel="noopener noreferrer">issue #51</a> <strong>Existem blocos de texto com mais de 100 caracteres por linha </strong></p>
+                <div class="evidence-labels"><span class="label-tag label-nok"><span class="sr-only">etiqueta: </span>NOK</span><span class="label-tag label-checklist"><span class="sr-only">etiqueta: </span>chk conteúdo</span><span class="label-tag label-requisito"><span class="sr-only">etiqueta: </span>R 2.3</span></div>
+                <div class="issue-content"><blockquote>
+<p>Blocos e linhas de texto com largura não superior a 100 caracteres.<br>– <a href="https://amagovpt.github.io/kit-selo/checklists/checklist-conteudo#n23">ver requisito 2.3 na lista Conteúdo</a></p>
+</blockquote>
+<p><strong>Notas gerais:</strong><br>Para assegurar uma boa leitura, as linhas de texto devem ter até 80 caracteres (incluindo espaços). No limite, podem ir até aos 100 caracteres (incluindo espaços).</p>
+<p><strong>Evidências:</strong><br>Ao longo do site, várias páginas possuem blocos de texto com mais de 100 caracteres por linha como, por exemplo, as páginas <a href="https://www.cmpv.pt/acessibilidade/">Declaração de Acessibilidade e Usabilidade</a> e <a href="https://www.cmpv.pt/index.php?op=noticias&amp;id=4282">Conclusões da auditoria à situação financeira e recursos humanos do grupo municipal “Engenharia financeira” entre empresas municipais fez Município da Praia ultrapassar em 200% o limite de endividamento permitido por lei</a>.</p>
+<img src="https://github.com/user-attachments/assets/9cb8be97-6931-4722-b2ef-650ee962a88b" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;">
+
+
+
+<p><em>Figura 1 - Análise do número de caracteres no bloco de texto da página <a href="https://www.cmpv.pt/acessibilidade/">Declaração de Acessibilidade e Usabilidade</a>.</em></p>
+<img src="https://github.com/user-attachments/assets/ad224cd0-19de-4b6f-a662-a1235a46b75e" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;">
+
+
+
+<p><em>Figura 2 - Análise do número de caracteres no bloco de texto da página <a href="https://www.cmpv.pt/index.php?op=noticias&amp;id=4282">Conclusões da auditoria à situação financeira e recursos humanos do grupo municipal “Engenharia financeira” entre empresas municipais fez Município da Praia ultrapassar em 200% o limite de endividamento permitido por lei</a>.</em></p>
+<p><strong>Recomendações:</strong><br>Recomenda-se que seja definida uma largura máxima para as caixas de texto (max-width, em CSS), com unidades relativas ao tamanho de fonte (unidades em ou rem) para garantir que não é ultrapassado o número máximo de caracteres por linha.</p>
+</div>
+              </li></ul>
+</div>
+<h4 class="requirement-title" id="req-conteudo-r-3.2">Requisito 3.2 - A navegação principal está sempre visível e sempre no mesmo local</h4>
+<div class="requirement-content">
+<p><span class="status-nok"><span class="sr-only">etiqueta: </span>NOK</span></p>
+<p>Lista de evidências recolhidas:</p>
+<ul class="evidence-list">
+
+              <li class="evidence-item">
+                <p><span class="visually-hidden">evidência: </span><a href="https://github.com/a11y-PT/report_075/issues/20" class="issue-link" target="_blank" rel="noopener noreferrer">issue #20</a> <strong>Estado da navegação principal inconsistente e incorreto após retorno de documentos PDF</strong></p>
+                <div class="evidence-labels"><span class="label-tag label-nok"><span class="sr-only">etiqueta: </span>NOK</span><span class="label-tag label-checklist"><span class="sr-only">etiqueta: </span>chk conteúdo</span><span class="label-tag label-requisito"><span class="sr-only">etiqueta: </span>R 3.2</span></div>
+                <div class="issue-content"><blockquote>
+<p>A navegação principal está sempre visível e sempre no mesmo local.<br>– <a href="https://amagovpt.github.io/kit-selo/checklists/checklist-conteudo#n32">ver requisito 3.2 na lista Conteúdo</a></p>
+</blockquote>
+<p><strong>Evidências:</strong></p>
+<p>No website da <a href="https://www.cmpv.pt/index.php?utm_source=chatgpt.com">Câmara Municipal da Praia da Vitória</a>, o utilizador não dispõe de mecanismos que permitam identificar facilmente a sua localização atual na estrutura do website. Não existe indicação da página ativa no menu principal nem um sistema de breadcrumbs que forneça contexto de navegação (Ver figura 01).</p>
+<img src="https://github.com/user-attachments/assets/fb69e9c1-5dd6-4506-8041-fa9198c81bfc" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;">
+
+
+
+<p><em>Imagem da página de <a href="https://www.cmpv.pt/index.php?op=42">Educação</a> sem qualquer indicação de navegação.</em></p>
+<p>Adicionalmente, foi identificado um comportamento inconsistente do menu principal após a abertura de documentos PDF. Ao navegar para uma opção que abre um PDF (por exemplo: Município → Câmara Municipal → Sobre → Código de Ética e Conduta) e regressar à página anterior através do navegador, o menu passa a apresentar estados incorretos.</p>
+<p>Nestas situações, as subopções do menu podem surgir sobrepostas e são destacados itens que não correspondem à página atualmente visualizada (Figura 02). Embora um simples recarregamento da página possa, em alguns casos, restaurar o comportamento esperado, se existir interação prévia com o menu antes do recarregamento, o problema mantém-se e vários itens permanecem assinalados como ativos sem corresponderem à localização real do utilizador (Figura 03).</p>
+<p>Esta situação compromete a orientação e compreensão da estrutura de navegação, dificultando a identificação da página atual e do percurso efetuado no website.</p>
+<img src="https://github.com/user-attachments/assets/8ea069de-f846-481b-866f-a6b0433d387d" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;">
+
+
+
+<p><em>Imagem do menu sobreposto em si mesmo e opções de foco na opção incorreta do menu.</em></p>
+<img src="https://github.com/user-attachments/assets/98a14413-0d97-4164-a8ba-4baf8c28d8d9" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;">
+
+
+
+<p><em>Imagem do menu com foco em várias opções do menu.</em></p>
+<p><strong>URLs a verificar:</strong></p>
+<ul>
+<li><a href="https://www.cmpv.pt/index.php">https://www.cmpv.pt/index.php</a> - O erro pode ser feito de qualquer página do website, apenas seguir os passos</li>
+</ul>
+<p><strong>Recomendações:</strong></p>
+<ul>
+<li>Identificar de forma consistente a página atual no menu principal através de indicadores visuais e semânticos adequados.</li>
+<li>Implementar um sistema de breadcrumbs para fornecer contexto adicional de navegação.</li>
+<li>Garantir que o estado ativo dos itens do menu é atualizado corretamente após a abertura e o retorno de documentos PDF.</li>
+<li>Evitar a apresentação simultânea de múltiplos itens como ativos quando não correspondem à localização atual do utilizador.</li>
+<li>Validar o comportamento do menu em cenários de navegação com histórico do navegador (retroceder, avançar e recarregar página), assegurando consistência e previsibilidade na navegação.</li>
+</ul>
+</div>
+              </li></ul>
+</div>
+<h4 class="requirement-title" id="req-conteudo-r-4.1">Requisito 4.1 - Os documentos longos têm um índice no topo com hiperligações internas para o mesmo</h4>
+<div class="requirement-content">
+<p><span class="status-nok"><span class="sr-only">etiqueta: </span>NOK</span></p>
+<p>Lista de evidências recolhidas:</p>
+<ul class="evidence-list">
+
+              <li class="evidence-item">
+                <p><span class="visually-hidden">evidência: </span><a href="https://github.com/a11y-PT/report_075/issues/10" class="issue-link" target="_blank" rel="noopener noreferrer">issue #10</a> <strong>Páginas extensas sem índice de navegação interna entre secções</strong></p>
+                <div class="evidence-labels"><span class="label-tag label-nok"><span class="sr-only">etiqueta: </span>NOK</span><span class="label-tag label-checklist"><span class="sr-only">etiqueta: </span>chk conteúdo</span><span class="label-tag label-requisito"><span class="sr-only">etiqueta: </span>R 4.1</span></div>
+                <div class="issue-content"><blockquote>
+<p>Os documentos longos têm um índice no topo com hiperligações internas para o mesmo.<br>– <a href="https://amagovpt.github.io/kit-selo/checklists/checklist-conteudo#n41">ver requisito 4.1 na lista Conteúdo</a></p>
+</blockquote>
+<p><strong>Evidências:</strong></p>
+<p>Identificámos que a página <a href="https://www.cmpv.pt/index.php?op=44">Urbanismo e Obras</a> apresenta uma extensão superior a três ecrãs de altura sem disponibilizar um índice de navegação no topo da página com hiperligações internas para as respetivas secções. (Figura 01)</p>
+<img src="https://github.com/user-attachments/assets/accf0947-995b-43f9-975f-f1e5b6ad1802" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;">
+
+
+<p><em>Figura 01— Página longa sem índice de navegação para as secções do conteúdo.</em></p>
+
+<p><strong>URLs a verificar:</strong></p>
+<ul>
+<li><a href="https://www.cmpv.pt/index.php?op=44">https://www.cmpv.pt/index.php?op=44</a></li>
+<li><a href="https://www.cmpv.pt/index.php?op=noticias&amp;id=4433">https://www.cmpv.pt/index.php?op=noticias&amp;id=4433</a></li>
+<li><a href="https://www.cmpv.pt/index.php?op=noticias&amp;id=4248">https://www.cmpv.pt/index.php?op=noticias&amp;id=4248</a></li>
+<li><a href="https://www.cmpv.pt/index.php?op=2">https://www.cmpv.pt/index.php?op=2</a></li>
+<li><a href="https://www.cmpv.pt/index.php?op=43">https://www.cmpv.pt/index.php?op=43</a></li>
+<li><a href="https://www.cmpv.pt/index.php?op=42">https://www.cmpv.pt/index.php?op=42</a></li>
+<li><a href="https://www.cmpv.pt/index.php?op=20">https://www.cmpv.pt/index.php?op=20</a></li>
+<li><a href="https://www.cmpv.pt/index.php?op=41">https://www.cmpv.pt/index.php?op=41</a></li>
+</ul>
+<p> <strong>Recomendações:</strong></p>
+<p>Disponibilizar um índice de navegação no topo das páginas com extensão superior a três ecrãs de altura, contendo hiperligações internas para as respetivas secções e subsecções. Esta solução permite o acesso direto aos conteúdos e facilita a navegação em páginas com elevada quantidade de informação.</p>
+</div>
+              </li></ul>
+</div>
+<h4 class="requirement-title" id="req-conteudo-r-4.2">Requisito 4.2 - O layout do sítio Web é adaptável a plataformas móveis sem necessidade de efetuar varrimento horizontal</h4>
+<div class="requirement-content">
+<p><span class="status-nok"><span class="sr-only">etiqueta: </span>NOK</span></p>
+<p>Lista de evidências recolhidas:</p>
+<ul class="evidence-list">
+
+              <li class="evidence-item">
+                <p><span class="visually-hidden">evidência: </span><a href="https://github.com/a11y-PT/report_075/issues/9" class="issue-link" target="_blank" rel="noopener noreferrer">issue #9</a> <strong>Inconsistências de adaptação responsiva e apresentação de conteúdos em dispositivos móveis</strong></p>
+                <div class="evidence-labels"><span class="label-tag label-nok"><span class="sr-only">etiqueta: </span>NOK</span><span class="label-tag label-checklist"><span class="sr-only">etiqueta: </span>chk conteúdo</span><span class="label-tag label-requisito"><span class="sr-only">etiqueta: </span>R 4.2</span></div>
+                <div class="issue-content"><blockquote>
+<p>O layout do sítio Web é adaptável a plataformas móveis sem necessidade de efetuar varrimento horizontal.<br>– <a href="https://amagovpt.github.io/kit-selo/checklists/checklist-conteudo#n42">ver requisito 4.2 na lista Conteúdo</a></p>
+</blockquote>
+<p><strong>Evidências:</strong></p>
+<p>Identificámos que, na página inicial do website <a href="https://www.cmpv.pt/index.php#">Praia da Vitória</a>, em dispositivos móveis, alguns submenus do menu principal não são apresentados integralmente dentro da área visível do ecrã. Esta situação compromete a visualização e o acesso aos respetivos itens de navegação.</p>
+<p>Identificámos que, na página inicial do website <a href="https://www.cmpv.pt/">Praia da Vitória</a>, o controlo de navegação do carrossel da secção "Agenda Municipal" não é apresentado na totalidade em dispositivos móveis, encontrando-se visível apenas a seta de navegação à esquerda. Esta situação dificulta a perceção e utilização da funcionalidade de navegação entre conteúdos. (Figura 01)</p>
+<img src="https://github.com/user-attachments/assets/5f0b9b61-40d4-4505-998b-25146aeccd03" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;">
+
+
+<p><em>Figura 01— Submenu do menu principal parcialmente oculto em dispositivo móvel.</em></p>
+
+<p>Identificámos que, na página inicial do website <a href="https://www.cmpv.pt/">Praia da Vitória</a>, o controlo de navegação do carrossel da secção "Agenda Municipal" não é apresentado na totalidade em dispositivos móveis, dificultando a perceção e utilização da funcionalidade de navegação entre conteúdos. (FIgura 02)</p>
+<img src="https://github.com/user-attachments/assets/b5abd3a4-f5d6-4dad-aeb8-679a4e3c94bf" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;">
+
+
+<p><em>Figura 02 — Controlo de navegação do carrossel não visível em dispositivo móvel.</em></p>
+
+<p>Identificámos que, na página <a href="https://www.cmpv.pt/index.php?op=46">Assembleia Municipal - Agenda</a>, em dispositivos móveis, o botão de acessibilidade é apresentado sobre o conteúdo da página, sobrepondo-se ao título "Assembleia Municipal - Agenda" e comprometendo a sua correta visualização.</p>
+<img src="https://github.com/user-attachments/assets/d1f5d6c0-044a-436c-831b-60960cd147d2" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;">
+
+
+<p><em>Figura 03 — Botão de acessibilidade sobreposto ao título da página em dispositivo móvel.</em></p>
+
+<p>Identificámos que, na página <a href="https://www.cmpv.pt/index.php?op=info&amp;tipo_info=7">Comunicados</a>, o conteúdo não se adapta corretamente a algumas larguras de ecrã em dispositivos móveis, ficando parcialmente oculto fora da área visível e comprometendo a sua consulta.</p>
+<img src="https://github.com/user-attachments/assets/a94f32c7-f321-450c-9ed8-97b02b4dd99b" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;">
+
+
+<p><em>Figura 04 — Conteúdo parcialmente oculto em dispositivo móvel.</em></p>
+
+<p><strong>URLs a verificar:</strong></p>
+<ul>
+<li><a href="https://www.cmpv.pt/">https://www.cmpv.pt/</a></li>
+<li><a href="https://www.cmpv.pt/index.php?op=46">https://www.cmpv.pt/index.php?op=46</a></li>
+<li><a href="https://www.cmpv.pt/index.php?op=info&amp;tipo_info=3">https://www.cmpv.pt/index.php?op=info&amp;tipo_info=3</a></li>
+<li><a href="https://www.cmpv.pt/index.php?op=22">https://www.cmpv.pt/index.php?op=22</a></li>
+<li><a href="https://www.cmpv.pt/index.php?op=info&amp;tipo_info=7">https://www.cmpv.pt/index.php?op=info&amp;tipo_info=7</a></li>
+<li><a href="https://www.cmpv.pt/index.php?op=info&amp;tipo_info=16">https://www.cmpv.pt/index.php?op=info&amp;tipo_info=16</a></li>
+<li><a href="https://www.cmpv.pt/index.php?op=24">https://www.cmpv.pt/index.php?op=24</a></li>
+<li><a href="https://www.cmpv.pt/index.php?op=41">https://www.cmpv.pt/index.php?op=41</a></li>
+</ul>
+<p> <strong>Recomendações:</strong></p>
+<p>Garantir a adaptação dos conteúdos e componentes de navegação às diferentes larguras de ecrã, assegurando a sua correta visualização e utilização sem necessidade de deslocação horizontal. </p>
+<p>Os elementos da interface, incluindo menus, submenus, controlos de navegação e componentes fixos, não devem sobrepor-se ao conteúdo nem ficar parcialmente ocultos fora da área visível em dispositivos móveis.</p>
+</div>
+              </li></ul>
+</div>
+<h4 class="requirement-title" id="req-conteudo-r-5.1">Requisito 5.1 - Não existem elementos interativos acionados apenas com a passagem do rato (hover)</h4>
+<div class="requirement-content">
+<p><span class="status-nok"><span class="sr-only">etiqueta: </span>NOK</span></p>
+<p>Lista de evidências recolhidas:</p>
+<ul class="evidence-list">
+
+              <li class="evidence-item">
+                <p><span class="visually-hidden">evidência: </span><a href="https://github.com/a11y-PT/report_075/issues/39" class="issue-link" target="_blank" rel="noopener noreferrer">issue #39</a> <strong>Elementos interativos dependentes de interação por hover para visualização</strong></p>
+                <div class="evidence-labels"><span class="label-tag label-nok"><span class="sr-only">etiqueta: </span>NOK</span><span class="label-tag label-checklist"><span class="sr-only">etiqueta: </span>chk conteúdo</span><span class="label-tag label-requisito"><span class="sr-only">etiqueta: </span>R 5.1</span></div>
+                <div class="issue-content"><blockquote>
+<p>Não existem elementos interativos acionados apenas com a passagem do rato.<br>– <a href="https://amagovpt.github.io/kit-selo/checklists/checklist-conteudo#n51">ver requisito 5.1 na lista Conteúdo</a></p>
+</blockquote>
+<p><strong>Evidências:</strong></p>
+<p>Identificámos que, na página <a href="https://www.cmpv.pt/index.php?op=agenda&amp;ano=0&amp;mes=0&amp;catid=1">Agenda Cultural - Touradas</a>, a informação associada aos eventos destacados no calendário é disponibilizada apenas através da interação por hover sobre as datas. Esta situação impede o acesso à mesma informação em dispositivos com interação por toque. (Figura 01)</p>
+<img src="https://github.com/user-attachments/assets/2ea61bac-8883-4c8f-9660-aa805f0dc275" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;">
+
+
+<p><em>Figura 01 — Informação dos eventos apresentada apenas através da interação por hover no calendário.</em></p>
+
+<p><strong>URLs a verificar:</strong></p>
+<ul>
+<li><a href="https://www.cmpv.pt/index.php?op=agenda&amp;ano=0&amp;mes=0&amp;catid=1">https://www.cmpv.pt/index.php?op=agenda&amp;ano=0&amp;mes=0&amp;catid=1</a></li>
+<li><a href="https://www.cmpv.pt/index.php?op=agenda&amp;ano=0&amp;mes=0&amp;catid=8">https://www.cmpv.pt/index.php?op=agenda&amp;ano=0&amp;mes=0&amp;catid=8</a> - <em>Componente do calendário em todas as páginas da agenda.</em></li>
+</ul>
+<p><strong>Recomendações:</strong></p>
+<p>Garantir que a informação disponibilizada através da interação por hover pode também ser acedida através de mecanismos compatíveis com dispositivos táteis, como clique, seleção ou foco, assegurando a sua utilização em diferentes tipos de dispositivos.</p>
+</div>
+              </li></ul>
+</div>
+<h4 class="requirement-title" id="req-conteudo-r-5.2">Requisito 5.2 - Os elementos interativos têm uma dimensão mínima de 44px CSS (44 pontos) (vertical e horizontal)</h4>
+<div class="requirement-content">
+<p><span class="status-nok"><span class="sr-only">etiqueta: </span>NOK</span></p>
+<p>Lista de evidências recolhidas:</p>
+<ul class="evidence-list">
+
+              <li class="evidence-item">
+                <p><span class="visually-hidden">evidência: </span><a href="https://github.com/a11y-PT/report_075/issues/40" class="issue-link" target="_blank" rel="noopener noreferrer">issue #40</a> <strong>Elementos interativos com área clicável inferior à dimensão mínima recomendada</strong></p>
+                <div class="evidence-labels"><span class="label-tag label-nok"><span class="sr-only">etiqueta: </span>NOK</span><span class="label-tag label-checklist"><span class="sr-only">etiqueta: </span>chk conteúdo</span><span class="label-tag label-requisito"><span class="sr-only">etiqueta: </span>R 5.2</span></div>
+                <div class="issue-content"><blockquote>
+<p>Os elementos interativos têm uma dimensão mínima de 44px CSS (44 pontos), vertical e horizontal.<br>– <a href="https://amagovpt.github.io/kit-selo/checklists/checklist-conteudo#n52">ver requisito 5.2 na lista Conteúdo</a></p>
+</blockquote>
+<p><strong>Evidências:</strong></p>
+<p>Verificámos vários elementos interativos na página inicial do website <a href="https://www.cmpv.pt/">Praia da Vitória</a>, com dimensões inferiores à área mínima recomendada de 44x44px.</p>
+<p>Foi identificado uma altura de 32.6px no campo de pesquisa. (Figura 01)</p>
+<img src="https://github.com/user-attachments/assets/0b6ba2fb-d84e-40f0-acda-05e6a0317af9" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;">
+
+
+<p><em>Figura 01 — Campo de pesquisa com área acionável inferior à dimensão mínima recomendada.</em></p>
+
+<p>Adicionalmente o botão de pesquisa possue uma dimensão de 42.8 x 32.6px. (Figura 02)</p>
+<img src="https://github.com/user-attachments/assets/b6a8d7ca-08d7-4dad-8048-16c13c30c690" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;">
+
+
+<p><em>Figura 02 — Botão de pesquisa com área acionável inferior à dimensão mínima recomendada.</em></p>
+
+<p>Foram identificados ícones de acesso às redes sociais com dimensões de 14 × 19,2px, inferiores à dimensão mínima recomendada de 44px × 44px. (Figura 03)</p>
+<img src="https://github.com/user-attachments/assets/a9c490f6-fbc7-4b49-9819-8be72e7ed8cb" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;">
+
+
+<p><em>Figura 03 — Ícones de redes sociais com dimensões de 14 × 19.2px, inferiores à dimensão mínima recomendada.</em></p>
+
+<p>O ícone de fechar o menu principal apresenta dimensões de 24 × 38.4px, não cumpre o critério do requisito. (Figura 04)</p>
+<img src="https://github.com/user-attachments/assets/354ae59f-e56e-48c7-a538-62ee20c362d7" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;">
+
+
+<p><em>Figura 04 — Ícone de fechar o menu principal com área acionável inferior à dimensão mínima recomendada.</em></p>
+
+<p>o controlo de navegação do carrossel da secção "Agenda Municipal" apresenta dimensões de 14 × 16px. (Figura 05)</p>
+<img src="https://github.com/user-attachments/assets/c466cb74-213d-47a5-8411-1fe2954170a7" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;">
+
+
+<p><em>Figura 05 — Controlo de navegação do carrossel com dimensão inferior a 44px × 44px.</em></p>
+
+<p>Outros exemplos a verificar de controlos de navegação abaixo do mínimo recomendado: </p>
+<ul>
+<li>Controlos de acesso aos conteúdos em destaque com 27px</li>
+<li>Controlo de navegação do carrossel de notícias com 32px</li>
+</ul>
+<p>Identificámos que os controlos de paginação da página <a href="https://www.cmpv.pt/index.php?op=agenda&amp;ano=0&amp;mes=0&amp;catid=8">Agenda cultural - Cinema</a> apresentam dimensões de 28,25 × 28,6px, inferiores à dimensão mínima recomendada de 44px × 44px, dificultando a sua utilização em dispositivos táteis. (Figura 06)</p>
+<img src="https://github.com/user-attachments/assets/38ae2e8f-93a1-4ce9-b617-c946f4b475b8" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;">
+
+
+<p><em>Figura 06 — Controlo de paginação com dimensão inferior a 44px × 44px.</em></p>
+
+<p><strong>URLs a verificar:</strong></p>
+<ul>
+<li><a href="https://www.cmpv.pt/">https://www.cmpv.pt/</a></li>
+<li><a href="https://www.cmpv.pt/index.php?op=agenda&amp;ano=0&amp;mes=0&amp;catid=8">https://www.cmpv.pt/index.php?op=agenda&amp;ano=0&amp;mes=0&amp;catid=8</a></li>
+<li><a href="https://www.cmpv.pt/index.php?op=agenda&amp;ano=0&amp;mes=0&amp;catid=1">https://www.cmpv.pt/index.php?op=agenda&amp;ano=0&amp;mes=0&amp;catid=1</a></li>
+<li><a href="https://www.cmpv.pt/index.php?op=noticias">https://www.cmpv.pt/index.php?op=noticias</a></li>
+<li><a href="https://www.cmpv.pt/index.php?op=info&amp;tipo_info=3">https://www.cmpv.pt/index.php?op=info&amp;tipo_info=3</a></li>
+<li><a href="https://www.cmpv.pt/index.php?op=info&amp;tipo_info=7">https://www.cmpv.pt/index.php?op=info&amp;tipo_info=7</a></li>
+<li><a href="https://www.cmpv.pt/index.php?op=info&amp;tipo_info=16">https://www.cmpv.pt/index.php?op=info&amp;tipo_info=16</a></li>
+</ul>
+<p> <strong>Recomendações:</strong></p>
+<p>Garantir que todos os elementos interativos apresentam uma área acionável mínima de 44px × 44px, facilitando a sua utilização em dispositivos táteis.</p>
+</div>
+              </li></ul>
+</div>
+<h4 class="requirement-title" id="req-conteudo-r-5.4">Requisito 5.4 - Elementos gráficos interativos têm de aparentar ser clicáveis</h4>
+<div class="requirement-content">
+<p><span class="status-nok"><span class="sr-only">etiqueta: </span>NOK</span></p>
+<p>Lista de evidências recolhidas:</p>
+<ul class="evidence-list">
+
+              <li class="evidence-item">
+                <p><span class="visually-hidden">evidência: </span><a href="https://github.com/a11y-PT/report_075/issues/42" class="issue-link" target="_blank" rel="noopener noreferrer">issue #42</a> <strong>Elementos interativos sem diferenciação visual clara ou comportamento consistente de interação</strong></p>
+                <div class="evidence-labels"><span class="label-tag label-nok"><span class="sr-only">etiqueta: </span>NOK</span><span class="label-tag label-checklist"><span class="sr-only">etiqueta: </span>chk conteúdo</span><span class="label-tag label-requisito"><span class="sr-only">etiqueta: </span>R 5.4</span></div>
+                <div class="issue-content"><blockquote>
+<p>Elementos gráficos interativos têm de aparentar ser clicáveis.<br>– <a href="https://amagovpt.github.io/kit-selo/checklists/checklist-conteudo#n54">ver requisito 5.4 na lista Conteúdo</a></p>
+</blockquote>
+<p><strong>Evidências:</strong></p>
+<p>Identificámos que os cartazes dos filmes na página <a href="https://www.cmpv.pt/index.php?op=agenda&amp;ano=0&amp;mes=0&amp;catid=8">Agenda Cultural - Cinema</a> funcionam como elementos interativos, mas não apresentam indicadores visuais que permitam reconhecer facilmente a sua natureza clicável.</p>
+<img src="https://github.com/user-attachments/assets/3cdcf587-566e-4125-9932-6bea6fbea4df" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;">
+
+
+<p><em>Figura 01— Cartazes dos filmes sem indicação visual de interação.</em></p>
+
+<p>Identificámos que os elementos da secção "Notícias Relacionadas" na página <a href="https://www.cmpv.pt/index.php?op=noticias&amp;id=4576">Notícia</a> funcionam como hiperligações, mas não apresentam indicadores visuais que permitam reconhecer facilmente a sua natureza interativa. (Figura 02)</p>
+<img src="https://github.com/user-attachments/assets/c6bc5560-949f-43aa-bed6-cb1a9525cbf6" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;">
+
+
+<p><em>Figura 02— Notícias relacionadas sem indicação visual de interação.</em></p>
+
+<p>Verificámos que os ícones das redes sociais presentes no rodapé do website <a href="https://www.cmpv.pt/index.php">Praia da Vitória</a>, não apresentam indicadores visuais claros de interação. Os elementos mantêm o mesmo aspeto no hover, dificultando a sua identificação como áreas clicáveis. (Figura 03)</p>
+<img src="https://github.com/user-attachments/assets/dfdcc16a-ec7a-4ddd-bed8-33ce34e0add2" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;">
+
+
+<p><em>Figura 03 — Ícones de redes sociais não apresentam indicadores visuais claros de interação.</em></p>
+
+<p><strong>URLs a verificar:</strong></p>
+<ul>
+<li><a href="https://www.cmpv.pt/index.php">https://www.cmpv.pt/index.php</a></li>
+<li><a href="https://www.cmpv.pt/index.php?op=noticias&amp;id=4575">https://www.cmpv.pt/index.php?op=noticias&amp;id=4575</a></li>
+<li><a href="https://www.cmpv.pt/index.php?op=noticias&amp;id=4481">https://www.cmpv.pt/index.php?op=noticias&amp;id=4481</a></li>
+<li><a href="https://www.cmpv.pt/index.php?op=info&amp;tipo_info=2">https://www.cmpv.pt/index.php?op=info&amp;tipo_info=2</a></li>
+<li> <strong>Recomendações:</strong></li>
+</ul>
+<p>Garantir que os elementos gráficos interativos apresentam indicadores visuais claros e consistentes que permitam reconhecer facilmente a sua natureza clicável, através da forma, cor, contraste ou comportamento visual durante a interação.</p>
+</div>
+              </li>
+              <li class="evidence-item">
+                <p><span class="visually-hidden">evidência: </span><a href="https://github.com/a11y-PT/report_075/issues/41" class="issue-link" target="_blank" rel="noopener noreferrer">issue #41</a> <strong>Elementos interativos com contraste insuficiente relativamente ao fundo</strong></p>
+                <div class="evidence-labels"><span class="label-tag label-nok"><span class="sr-only">etiqueta: </span>NOK</span><span class="label-tag label-checklist"><span class="sr-only">etiqueta: </span>chk conteúdo</span><span class="label-tag label-requisito"><span class="sr-only">etiqueta: </span>R 5.4</span></div>
+                <div class="issue-content"><blockquote>
+<p>Elementos gráficos interativos têm de aparentar ser clicáveis.<br>– <a href="https://amagovpt.github.io/kit-selo/checklists/checklist-conteudo#n54">ver requisito 5.4 na lista Conteúdo</a></p>
+</blockquote>
+<p><strong>Evidências:</strong></p>
+<p>Identificámos na página incial do website <a href="https://www.cmpv.pt/">Praia da Vitória</a>, que os controlos de navegação do carrossel da secção "Notícias" apresentam uma relação de contraste de 1:1 face às imagens de fundo.<br>Em algumas situações, os controlos tornam-se praticamente impercetíveis, dificultando a sua identificação e utilização pelos utilizadores. (Figura 01)</p>
+<img src="https://github.com/user-attachments/assets/edfe82f3-23b2-4143-a099-50924f05d958" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;">
+
+
+<p><em>Figura 01 — Controlo de navegação do carrossel com contraste insuficiente face à imagem de fundo.</em></p>
+
+<p><strong>URLs a verificar:</strong></p>
+<ul>
+<li><a href="https://www.cmpv.pt/">https://www.cmpv.pt/</a></li>
+<li><a href="https://www.cmpv.pt/index.php?op=noticias">https://www.cmpv.pt/index.php?op=noticias</a></li>
+<li><a href="https://www.cmpv.pt/index.php?op=info&amp;tipo_info=3">https://www.cmpv.pt/index.php?op=info&amp;tipo_info=3</a></li>
+<li><a href="https://www.cmpv.pt/index.php?op=info&amp;tipo_info=7">https://www.cmpv.pt/index.php?op=info&amp;tipo_info=7</a></li>
+</ul>
+<p> <strong>Recomendações:</strong></p>
+<p>Garantir que os elementos gráficos interativos apresentam indicadores visuais suficientemente percetíveis e contrastantes, permitindo aos utilizadores identificar facilmente a sua funcionalidade de navegação.</p>
+</div>
+              </li></ul>
+</div>
+
+      </div>
+      <div class="checklist-section">
+        <h3 id="outras-violacoes">Outras violações</h3>
+        <div class="requirement-content">
+<p><span class="status-ok"><span class="sr-only">etiqueta: </span>OK</span> (no entanto contém 3 melhorias que se recomenda efetuar)</p>
+<p>Lista de evidências recolhidas:</p>
+<ul class="evidence-list">
+
+              <li class="evidence-item">
+                <p><span class="visually-hidden">evidência: </span><a href="https://github.com/a11y-PT/report_075/issues/55" class="issue-link" target="_blank" rel="noopener noreferrer">issue #55</a> <strong>Outras violações - Problemas de acessibilidade herdados do iframe ODS Local</strong></p>
+                <div class="evidence-labels"><span class="label-tag label-melhoria"><span class="sr-only">etiqueta: </span>melhoria</span><span class="label-tag label-outras"><span class="sr-only">etiqueta: </span>outras violações</span></div>
+                <div class="issue-content"><p><strong>Evidências:</strong></p>
+<p>A página dos <a href="https://www.cmpv.pt/index.php?op=61">Objetivos de Desenvolvimento Sustentável</a> incorpora conteúdo externo através de um iframe proveniente do website ODS Local. Embora os problemas identificados estejam presentes no conteúdo carregado pelo iframe, estes impactam diretamente a experiência dos utilizadores da página e devem ser considerados no âmbito da auditoria do website.</p>
+<p>Foram identificados os seguintes problemas de acessibilidade:</p>
+<ul>
+<li>O foco não é movido para a caixa de diálogo quando esta é aberta.</li>
+<li>O foco não fica limitado à caixa de diálogo, permitindo navegar para elementos exteriores à modal.</li>
+<li>A caixa de diálogo não possui mecanismos adequados de encerramento (tecla ESC e botão de fechar).</li>
+<li>Ao fechar a caixa de diálogo, o foco não regressa ao elemento que a acionou.</li>
+<li>Existem múltiplas ações com o mesmo destaque visual, dificultando a identificação da ação principal.</li>
+<li>As hiperligações presentes no iframe são identificadas apenas através da cor, sem indicação visual complementar.</li>
+</ul>
+<p>Destaques de alguns dos problemas:</p>
+<ol>
+<li>Hierarquia visual insuficiente entre ações principais e elementos informativos</li>
+</ol>
+<p>Os elementos de seleção "checkboxes" utilizam a mesma cor de destaque aplicada aos botões de ação, assim como o botão "Inserir projeto" reduzindo a diferenciação visual entre os controlos de configuração e as ações disponíveis.</p>
+<img src="https://github.com/user-attachments/assets/9848f562-d10c-4eb9-90bd-a45c6f16382f" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;">
+
+
+
+<p><em>Botões "Limpar filtros", "Aplicar filtros", "Inserir projeto" e "Checkboxes" com o mesmo destaque visual.</em></p>
+<ol start="2">
+<li>Hiperligações identificadas apenas pela cor</li>
+</ol>
+<p>Foi verificado que várias hiperligações do conteúdo carregado pelo iframe são distinguidas exclusivamente através da cor. A ausência de indicadores adicionais, como sublinhado ou alteração de estilo, dificulta a identificação dos links por utilizadores com limitações visuais ou dificuldades na perceção de cores.</p>
+<img src="https://github.com/user-attachments/assets/38af2fbe-dc8f-4ee7-a35f-32fa18cf2e18" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;">
+
+
+
+<p><em>Imagem da hiperligação "AQUI" sem identificação complementar à cor.</em></p>
+<p><strong>URL's a verificar:</strong></p>
+<ul>
+<li><a href="https://www.cmpv.pt/index.php?op=61">https://www.cmpv.pt/index.php?op=61</a></li>
+</ul>
+<p><strong>Recomendações:</strong></p>
+<ul>
+<li>Avaliar a necessidade de manter o conteúdo através de um iframe externo, considerando a integração direta da informação necessária no website da Câmara Municipal da Praia da Vitória.</li>
+<li>Sempre que possível, disponibilizar os conteúdos dos Objetivos de Desenvolvimento Sustentável através de páginas e componentes próprios do website, permitindo um maior controlo sobre os requisitos de acessibilidade, usabilidade e manutenção.</li>
+<li>Evitar a dependência de conteúdos externos quando estes apresentam problemas de acessibilidade que impactam diretamente a experiência dos utilizadores do website.</li>
+<li>Caso a utilização do iframe seja indispensável, estabelecer mecanismos de monitorização e articulação com a entidade responsável pelo conteúdo para garantir a correção dos problemas identificados.</li>
+</ul>
+<p>Nota:</p>
+<p>A integração direta do conteúdo no website permitiria corrigir de forma mais eficaz os problemas identificados, nomeadamente os relacionados com gestão de foco em caixas de diálogo, hierarquia visual de ações e identificação de hiperligações, garantindo uma experiência de navegação mais consistente e acessível.</p>
+</div>
+              </li>
+              <li class="evidence-item">
+                <p><span class="visually-hidden">evidência: </span><a href="https://github.com/a11y-PT/report_075/issues/54" class="issue-link" target="_blank" rel="noopener noreferrer">issue #54</a> <strong>Outras violações - Controlos de navegação permanecem ativos sem conteúdo disponível</strong></p>
+                <div class="evidence-labels"><span class="label-tag label-melhoria"><span class="sr-only">etiqueta: </span>melhoria</span><span class="label-tag label-outras"><span class="sr-only">etiqueta: </span>outras violações</span></div>
+                <div class="issue-content"><p><strong>Evidências:</strong></p>
+<p>Em certas páginas das agendas, não existe conteúdo disponível para apresentação. No entanto, os botões de navegação (avançar e recuar) permanecem visíveis, ativos e acessíveis a tecnologias de apoio.</p>
+<p>Além disso, não é apresentada qualquer mensagem que informe os utilizadores de que não existem concertos disponíveis. Como resultado, os utilizadores podem tentar interagir com controlos que não produzem qualquer efeito, gerando confusão e incerteza sobre o estado da página.</p>
+<img src="https://github.com/user-attachments/assets/d9bb2a97-4fb6-40a7-9697-69d160dd30e3" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;">
+
+
+
+<p><em>Imagem da página de concertos sem conteúdo disponível.</em></p>
+<p><strong>URL's a verificar:</strong></p>
+<ul>
+<li><a href="https://www.cmpv.pt/index.php?op=agenda&amp;ano=0&amp;mes=0&amp;catid=2">https://www.cmpv.pt/index.php?op=agenda&amp;ano=0&amp;mes=0&amp;catid=2</a></li>
+<li><a href="https://www.cmpv.pt/index.php?op=agenda&amp;ano=0&amp;mes=0&amp;catid=19">https://www.cmpv.pt/index.php?op=agenda&amp;ano=0&amp;mes=0&amp;catid=19</a></li>
+<li><a href="https://www.cmpv.pt/index.php?op=agenda&amp;ano=0&amp;mes=0&amp;catid=3">https://www.cmpv.pt/index.php?op=agenda&amp;ano=0&amp;mes=0&amp;catid=3</a></li>
+<li><a href="https://www.cmpv.pt/index.php?op=agenda&amp;ano=0&amp;mes=0&amp;catid=5">https://www.cmpv.pt/index.php?op=agenda&amp;ano=0&amp;mes=0&amp;catid=5</a></li>
+<li><a href="https://www.cmpv.pt/index.php?op=agenda&amp;ano=0&amp;mes=0&amp;catid=8">https://www.cmpv.pt/index.php?op=agenda&amp;ano=0&amp;mes=0&amp;catid=8</a></li>
+</ul>
+<p><strong>Recomendações:</strong></p>
+<ul>
+<li>Desativar ou ocultar os botões de navegação quando não existir conteúdo disponível.</li>
+<li>Garantir que os controlos inativos não são acessíveis por teclado nem anunciados como operáveis por tecnologias de apoio.</li>
+<li>Apresentar uma mensagem clara informando que não existe conteúdo disponível no momento.</li>
+<li>Assegurar que o estado da interface reflete corretamente a disponibilidade de conteúdo e das ações possíveis.</li>
+</ul>
+</div>
+              </li>
+              <li class="evidence-item">
+                <p><span class="visually-hidden">evidência: </span><a href="https://github.com/a11y-PT/report_075/issues/53" class="issue-link" target="_blank" rel="noopener noreferrer">issue #53</a> <strong>Outras violações - Links com destinos inválidos&quot;</strong></p>
+                <div class="evidence-labels"><span class="label-tag label-melhoria"><span class="sr-only">etiqueta: </span>melhoria</span><span class="label-tag label-outras"><span class="sr-only">etiqueta: </span>outras violações</span></div>
+                <div class="issue-content"><p><strong>Evidências:</strong></p>
+<p>Foi identificado que a hiperligação “Contactos” presente no menu do rodapé não funciona corretamente, direcionando o utilizador para um destino inválido ou inexistente.</p>
+<img src="https://github.com/user-attachments/assets/54bf121b-bab3-4194-beec-ba2401259863" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;">
+
+
+
+<p><em>Imagem da página que o link de "Contactos" do rodapé redireciona.</em></p>
+<p>No entanto, a mesma opção disponível através do menu principal encaminha corretamente para a página pretendida. Esta inconsistência pode causar confusão e dificultar o acesso à informação por parte dos utilizadores.</p>
+<p>Adicionalmente, a opção Concelho &gt; Saúde &gt; Centro de Saúde, disponível no menu principal, redireciona para um destino inválido, impedindo o acesso ao conteúdo esperado e comprometendo a experiência de navegação do utilizador.</p>
+<img src="https://github.com/user-attachments/assets/aa88d837-92d0-451a-b7c4-353a42a34726" alt="Image" class="evidence-image" style="max-width: 100%; height: auto; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;">
+
+
+
+<p><em>Imagem da página que o link de "Centro de Saúde" do menu principal redireciona.</em></p>
+<p><strong>URL's a verificar:</strong></p>
+<ul>
+<li><a href="https://www.cmpv.pt/index.php">https://www.cmpv.pt/index.php</a> - link do rodapé e menu principal</li>
+</ul>
+<p><strong>Recomendações:</strong></p>
+<ul>
+<li>Corrigir o destino da hiperligação “Contactos” presente no rodapé.</li>
+<li>Corrigir o destino da hiperligação “Centro de Saúde” presente no menu principal.</li>
+<li>Garantir que links com o mesmo nome e finalidade direcionam para o mesmo destino em todo o website.</li>
+<li>Validar periodicamente a existência de links inválidos ou quebrados para assegurar uma experiência de navegação consistente.</li>
+</ul>
+</div>
+              </li></ul>
+</div>
+
+      </div></section>
+
+    <section id="etiquetas" class="mb-5 report-section">
+      <h2>Significado das etiquetas utilizadas</h2>
+      <ul>
+        <li><span class="label-tag label-ok"><span class="sr-only">etiqueta: </span>OK</span> - status OK</li>
+        <li><span class="label-tag label-melhoria"><span class="sr-only">etiqueta: </span>melhoria</span> - status OK, mas pode melhorar</li>
+        <li><span class="label-tag label-nok"><span class="sr-only">etiqueta: </span>NOK</span> - status Not OK</li>
+        <li><span class="label-tag label-na"><span class="sr-only">etiqueta: </span>N/A</span> - status Não Aplicável</li>
+        <li><span class="label-tag label-checklist"><span class="sr-only">etiqueta: </span>chk10 web</span> - checklist 10 Aspetos críticos de acessibilidade funcional</li>
+        <li><span class="label-tag label-checklist"><span class="sr-only">etiqueta: </span>chk conteúdo</span> - checklist Conteúdo</li>
+        <li><span class="label-tag label-checklist"><span class="sr-only">etiqueta: </span>chk transação</span> - checklist Transação</li>
+        <li><span class="label-tag label-outras"><span class="sr-only">etiqueta: </span>outras violações</span> - permite construir o subcapítulo "Outras violações", o qual integra o capítulo "Avaliações manuais"</li>
+        <li><span class="label-tag label-declaracao"><span class="sr-only">etiqueta: </span>dec a11y</span> - permite construir o capítulo "Declaração de acessibilidade e usabilidade"</li>
+        <li><span class="label-tag label-auto"><span class="sr-only">etiqueta: </span>av auto</span> - permite construir o capítulo "Avaliação automática"</li>
+        <li><span class="label-tag label-checklist"><span class="sr-only">etiqueta: </span>testes usabilidade</span> - permite construir o capítulo "Testes de usabilidade"</li>
+      </ul>
+    </section>
+
+  </div>
+  <footer class="report-footer">
+    <p>© 2026 ARTE - Agência para a Reforma Tecnológica do Estado, I.P. Todos os Direitos Reservados.</p>
+    <p><em lang="en">GitReports v1.0</em> - relatório gerado automaticamente a partir dos <em lang="en">issues</em> do GitHub</p>
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
